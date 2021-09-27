@@ -10,18 +10,19 @@
         android:id="@+id/splash_iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/splash_logo"
         android:src="@drawable/ic_logo_big"
         app:layout_constraintBottom_toTopOf="@id/splash_tv_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/splash_logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/splash_tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="46dp"
+        android:fontFamily="@font/pretendard_medium"
         android:text="@string/splash_content"
         android:textColor="@color/orange_red"
         android:textSize="20dp"
