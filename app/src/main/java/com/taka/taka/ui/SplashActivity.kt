@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.taka.taka.MainActivity
 import com.taka.taka.R
 import kotlin.concurrent.thread
 
@@ -17,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
         thread {
             Thread.sleep(1000)
 
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

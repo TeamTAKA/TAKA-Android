@@ -2,4 +2,9 @@
     <string name="app_name">TAKA</string>
     <string name="splash_content">모바일 티켓북, 타카</string>
     <string name="splash_logo">스플래시 로고</string>
+    <string name="login">로그인</string>
+    <string name="login_id_hint">아이디</string>
+    <string name="login_pwd_hint">비밀번호</string>
+    <string name="login_account_none">계정이 없으신가요?</string>
+    <string name="signup">회원가입</string>
 </resources>
