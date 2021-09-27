@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TAKA</string>
+    <string name="splash_content">모바일 티켓북, 타카</string>
+    <string name="splash_logo">스플래시 로고</string>
 </resources>
