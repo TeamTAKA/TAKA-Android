@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TAKA">
         <activity
+            android:name=".ui.SignupActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="true" />
         <activity
@@ -21,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
