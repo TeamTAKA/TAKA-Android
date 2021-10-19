@@ -1,10 +1,12 @@
 package com.taka.taka.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.taka.taka.R
 
@@ -27,6 +29,10 @@ class BottomSheet : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<ImageView>(R.id.dialog_add_iv_close)?.setOnClickListener {
+            dismiss()
+        }
+        view.findViewById<TextView>(R.id.dialog_add_tv_pick)?.setOnClickListener {
+            startActivity(Intent(this.context, AddActivity::class.java))
             dismiss()
         }
     }

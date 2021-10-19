@@ -12,4 +12,20 @@
     <string name="add_ticket">티켓 추가</string>
     <string name="pick_image_album">앨범에서 이미지 선택</string>
     <string name="close">닫기</string>
+    <string name="back">뒤로가기</string>
+    <string name="add">등록</string>
+    <string name="ticket_title">작품명</string>
+    <string name="ticket_date">관람일자</string>
+    <string name="ticket_description">회차정보</string>
+    <string name="ticket_theater">공연장</string>
+    <string name="ticket_seat">좌석</string>
+    <string name="ticket_cast">캐스트</string>
+    <string name="ticket_review">리뷰</string>
+    <string name="ticket_title_empty">작품명을 입력해주세요</string>
+    <string name="ticket_date_empty">관람일자를 입력해주세요</string>
+    <string name="ticket_description_empty">회차 정보를 입력해주세요</string>
+    <string name="ticket_theater_empty">공연장 정보를 입력해주세요</string>
+    <string name="ticket_seat_empty">좌석 정보를 입력해주세요</string>
+    <string name="ticket_cast_empty">캐스트 정보를 입력해주세요</string>
+    <string name="ticket_review_empty">리뷰를 입력해주세요</string>
 </resources>

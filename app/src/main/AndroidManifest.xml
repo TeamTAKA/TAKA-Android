@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TAKA">
         <activity
+            android:name=".ui.AddActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.SignupActivity"
             android:exported="true" />
         <activity
