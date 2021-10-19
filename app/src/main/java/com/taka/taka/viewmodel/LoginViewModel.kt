@@ -22,6 +22,6 @@ class LoginViewModel : ViewModel() {
         }
 
         _loginSuccess.value = true
-        TODO("서버 호출")
+        // TODO("서버 호출")
     }
 }

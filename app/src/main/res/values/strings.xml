@@ -9,4 +9,7 @@
     <string name="login_account_none">계정이 없으신가요?</string>
     <string name="signup">회원가입</string>
     <string name="signup_account_already">이미 계정이 있으신가요?</string>
+    <string name="add_ticket">티켓 추가</string>
+    <string name="pick_image_album">앨범에서 이미지 선택</string>
+    <string name="close">닫기</string>
 </resources>

@@ -12,4 +12,6 @@
     <color name="gray_light">#FFF5F6F8</color>
     <color name="text_hint">#66000000</color>
     <color name="text">@color/black</color>
+    <color name="dialog_text">#FF1D1D1D</color>
+    <color name="dialog_pick_background">#26C4C4C4</color>
 </resources>
