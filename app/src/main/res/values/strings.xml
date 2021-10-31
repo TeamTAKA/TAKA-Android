@@ -2,6 +2,7 @@
     <string name="app_name">TAKA</string>
     <string name="splash_content">모바일 티켓북, 타카</string>
     <string name="splash_logo">스플래시 로고</string>
+    <!-- 로그인 회원가입 -->
     <string name="login">로그인</string>
     <string name="id_hint">아이디</string>
     <string name="pwd_hint">비밀번호</string>
@@ -15,6 +16,9 @@
     <string name="back">뒤로가기</string>
     <string name="home">홈</string>
     <string name="search">검색</string>
+    <!-- 홈 화면 -->
+    <string name="home_title">MY TICKETS</string>
+    <string name="home_tickets_empty">버튼을 눌러\n티켓을 추가해보세요</string>
     <!-- 티켓 등록 화면 -->
     <string name="add">등록</string>
     <string name="ticket_title">작품명</string>
@@ -31,4 +35,6 @@
     <string name="ticket_seat_empty">좌석 정보를 입력해주세요</string>
     <string name="ticket_cast_empty">캐스트 정보를 입력해주세요</string>
     <string name="ticket_review_empty">리뷰를 입력해주세요</string>
+    <string name="mypage_icon">마이페이지 아이콘</string>
+    <string name="home_imageview_mode">티켓 뷰 변경 아이콘</string>
 </resources>
