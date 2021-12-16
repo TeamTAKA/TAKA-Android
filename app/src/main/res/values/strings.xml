@@ -43,4 +43,8 @@
     <string name="mypage_contact">문의하기</string>
     <string name="mypage_logout">로그아웃</string>
     <string name="mypage_title">MY PAGE</string>
+    <string name="contact_email_hint">연락 받을 이메일 주소를 입력하세요</string>
+    <string name="contact_title_hint">제목을 입력하세요</string>
+    <string name="contact_content_hint">내용을 입력하세요</string>
+    <string name="contact_write">작성하기</string>
 </resources>
