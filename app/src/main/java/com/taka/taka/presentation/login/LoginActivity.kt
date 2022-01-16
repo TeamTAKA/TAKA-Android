@@ -4,30 +4,31 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.taka.taka.presentation.MainActivity
-import com.taka.taka.R
 import com.taka.taka.databinding.ActivityLoginBinding
+import com.taka.taka.presentation.MainActivity
 import com.taka.taka.presentation.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var viewModel: LoginViewModel
-    private lateinit var binding: ActivityLoginBinding
+    private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(binding.root)
 
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(LoginViewModel::class.java)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
 
+        binding.loginTvLogin.setOnClickListener {
+            viewModel.login(
+                binding.loginEtId.text.toString(),
+                binding.loginEtPwd.text.toString()
+            )
+        }
         binding.loginTvSignup.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
         }

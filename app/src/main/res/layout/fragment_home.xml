@@ -1,78 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    tools:context=".presentation.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gray_light"
-        tools:context=".presentation.home.HomeFragment">
+    <TextView
+        android:id="@+id/home_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/taka_regular"
+        android:text="@string/home_title"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpUsage" />
 
-        <TextView
-            android:id="@+id/home_tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/taka_regular"
-            android:text="@string/home_title"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpUsage" />
+    <ImageView
+        android:id="@+id/home_iv_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:contentDescription="@string/home_imageview_mode"
+        android:padding="10dp"
+        android:src="@drawable/ic_view_linear"
+        app:layout_constraintBottom_toBottomOf="@id/home_tv_title"
+        app:layout_constraintStart_toEndOf="@id/home_tv_title"
+        app:layout_constraintTop_toTopOf="@id/home_tv_title" />
 
-        <ImageView
-            android:id="@+id/home_iv_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:contentDescription="@string/home_imageview_mode"
-            android:padding="10dp"
-            android:src="@drawable/ic_view_linear"
-            app:layout_constraintBottom_toBottomOf="@id/home_tv_title"
-            app:layout_constraintStart_toEndOf="@id/home_tv_title"
-            app:layout_constraintTop_toTopOf="@id/home_tv_title" />
+    <ImageView
+        android:id="@+id/home_iv_mypage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/mypage_icon"
+        android:padding="10dp"
+        android:src="@drawable/ic_my_page"
+        app:layout_constraintBottom_toBottomOf="@id/home_iv_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_iv_mode" />
 
-        <ImageView
-            android:id="@+id/home_iv_mypage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:contentDescription="@string/mypage_icon"
-            android:padding="10dp"
-            android:src="@drawable/ic_my_page"
-            app:layout_constraintBottom_toBottomOf="@id/home_iv_mode"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/home_iv_mode" />
+    <TextView
+        android:id="@+id/home_tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="center"
+        android:text="@string/home_tickets_empty"
+        android:textColor="@color/text_default"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpUsage" />
 
-        <TextView
-            android:id="@+id/home_tv_empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pretendard_regular"
-            android:gravity="center"
-            android:text="@string/home_tickets_empty"
-            android:textColor="@color/text_default"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpUsage" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/home_vp_tickets"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_iv_mode" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/home_vp_tickets"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_iv_mode" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
