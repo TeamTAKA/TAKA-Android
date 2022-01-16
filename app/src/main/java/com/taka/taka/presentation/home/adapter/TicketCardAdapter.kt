@@ -1,4 +1,4 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation.home.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

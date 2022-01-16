@@ -1,7 +1,7 @@
-package com.taka.taka.ui.fragment
+package com.taka.taka.presentation.home
 
 import androidx.lifecycle.ViewModel
 
-class SearchViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

@@ -1,4 +1,4 @@
-package com.taka.taka.ui.fragment
+package com.taka.taka.presentation.search
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

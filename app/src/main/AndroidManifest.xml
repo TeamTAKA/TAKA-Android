@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TAKA">
         <activity
-            android:name=".ui.MypageActivity"
+            android:name=".presentation.mypage.MypageActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.AddActivity"
+            android:name=".presentation.add.AddActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.SignupActivity"
+            android:name=".presentation.signup.SignupActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".presentation.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

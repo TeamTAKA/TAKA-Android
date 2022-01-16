@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.taka.taka.ui.fragment.HomeFragment"
+        android:name="com.taka.taka.presentation.home.HomeFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/search_fragment"
-        android:name="com.taka.taka.ui.fragment.SearchFragment"
+        android:name="com.taka.taka.presentation.search.SearchFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_search">
         <action

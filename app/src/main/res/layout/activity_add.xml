@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.taka.taka.viewmodel.AddViewModel" />
+            type="com.taka.taka.presentation.add.AddViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
                 android:paddingBottom="20dp"
-                tools:context=".ui.AddActivity">
+                tools:context=".presentation.add.AddActivity">
 
                 <TextView
                     android:id="@+id/add_tv_title"

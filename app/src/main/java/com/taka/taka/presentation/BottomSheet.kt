@@ -1,4 +1,4 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.taka.taka.R
+import com.taka.taka.presentation.add.AddActivity
 
 class BottomSheet : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.taka.taka.viewmodel.LoginViewModel" />
+            type="com.taka.taka.presentation.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_light"
-        tools:context=".ui.LoginActivity">
+        tools:context=".presentation.login.LoginActivity">
 
         <ImageView
             android:id="@+id/login_iv_logo"

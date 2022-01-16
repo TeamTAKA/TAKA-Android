@@ -1,12 +1,12 @@
-package com.taka.taka
+package com.taka.taka.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.taka.taka.R
 import com.taka.taka.databinding.ActivityMainBinding
-import com.taka.taka.ui.BottomSheet
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

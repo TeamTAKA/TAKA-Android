@@ -1,4 +1,4 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation.add
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityAddBinding
-import com.taka.taka.viewmodel.AddViewModel
 
 class AddActivity : AppCompatActivity() {
 

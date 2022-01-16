@@ -1,4 +1,4 @@
-package com.taka.taka.ui.fragment
+package com.taka.taka.presentation.home
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.taka.taka.R
 import com.taka.taka.databinding.FragmentHomeBinding
-import com.taka.taka.ui.MypageActivity
-import com.taka.taka.ui.TicketCardAdapter
+import com.taka.taka.presentation.mypage.MypageActivity
+import com.taka.taka.presentation.home.adapter.TicketCardAdapter
 
 class HomeFragment : Fragment() {
 

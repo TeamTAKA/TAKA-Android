@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.taka.taka.viewmodel.SignupViewModel" />
+            type="com.taka.taka.presentation.signup.SignupViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_light"
-        tools:context=".ui.SignupActivity">
+        tools:context=".presentation.signup.SignupActivity">
 
         <ImageView
             android:id="@+id/signup_iv_logo"

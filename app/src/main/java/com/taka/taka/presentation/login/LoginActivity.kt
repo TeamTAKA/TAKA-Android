@@ -1,4 +1,4 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.taka.taka.MainActivity
+import com.taka.taka.presentation.MainActivity
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityLoginBinding
-import com.taka.taka.viewmodel.LoginViewModel
+import com.taka.taka.presentation.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
 

@@ -1,10 +1,11 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.taka.taka.R
+import com.taka.taka.presentation.login.LoginActivity
 import kotlin.concurrent.thread
 
 @SuppressLint("CustomSplashScreen")

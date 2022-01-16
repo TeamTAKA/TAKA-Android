@@ -1,4 +1,4 @@
-package com.taka.taka.viewmodel
+package com.taka.taka.presentation.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

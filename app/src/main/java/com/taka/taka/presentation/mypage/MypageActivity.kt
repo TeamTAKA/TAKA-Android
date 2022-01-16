@@ -1,4 +1,4 @@
-package com.taka.taka.ui
+package com.taka.taka.presentation.mypage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
