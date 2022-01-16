@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.taka.taka.R
 import com.taka.taka.databinding.FragmentHomeBinding
 import com.taka.taka.ui.MypageActivity
+import com.taka.taka.ui.TicketCardAdapter
 
 class HomeFragment : Fragment() {
 
@@ -37,6 +38,10 @@ class HomeFragment : Fragment() {
         binding.homeIvMypage.setOnClickListener {
             startActivity(Intent(context, MypageActivity::class.java))
         }
+
+        // 티켓 이미지 뷰페이저 설정
+        binding.homeVpTickets.adapter = TicketCardAdapter()
+        (binding.homeVpTickets.adapter as TicketCardAdapter).setImageList(arrayListOf("","",""))
     }
 
 }

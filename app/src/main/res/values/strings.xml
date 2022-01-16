@@ -2,6 +2,13 @@
     <string name="app_name">TAKA</string>
     <string name="splash_content">모바일 티켓북, 타카</string>
     <string name="splash_logo">스플래시 로고</string>
+
+    <!-- 티켓 예시 -->
+    <string name="ticket_title_kr_sample">오펀스</string>
+    <string name="ticket_title_en_sample">ORPHANS</string>
+    <string name="ticket_poster_image">티켓 이미지</string>
+    <string name="ticket_date_sample">2021.5.27</string>
+
     <!-- 로그인 회원가입 -->
     <string name="login">로그인</string>
     <string name="id_hint">아이디</string>
