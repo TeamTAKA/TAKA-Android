@@ -44,6 +44,7 @@
             android:layout_height="280dp"
             android:background="@color/image_defauilt"
             android:contentDescription="@string/ticket_poster_image"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add_iv_back" />
