@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TAKA</string>
     <string name="splash_content">모바일 티켓북, 타카</string>
+    <string name="logo">타카 로고 아이콘</string>
     <string name="splash_logo">스플래시 로고</string>
 
     <!-- 티켓 예시 -->
@@ -17,6 +18,8 @@
     <string name="login_account_none">계정이 없으신가요?</string>
     <string name="signup">회원가입</string>
     <string name="signup_account_already">이미 계정이 있으신가요?</string>
+    <string name="signup_duplicate_check">중복확인</string>
+    <string name="signup_duplicate_checked">확인완료</string>
     <string name="add_ticket">티켓 추가</string>
     <string name="pick_image_album">앨범에서 이미지 선택</string>
     <string name="close">닫기</string>
