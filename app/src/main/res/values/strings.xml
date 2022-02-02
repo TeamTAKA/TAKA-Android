@@ -29,7 +29,8 @@
     <string name="home_imageview_mode">티켓 뷰 변경 아이콘</string>
     <!-- 티켓 등록 화면 -->
     <string name="add">등록</string>
-    <string name="ticket_title">작품명</string>
+    <string name="ticket_title_kr">국문명</string>
+    <string name="ticket_title_en">영문명</string>
     <string name="ticket_date">관람일자</string>
     <string name="ticket_description">회차정보</string>
     <string name="ticket_theater">공연장</string>
