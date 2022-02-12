@@ -8,7 +8,9 @@ import androidx.navigation.findNavController
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityMainBinding
 import com.taka.taka.presentation.add.AddActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var navController: NavController
