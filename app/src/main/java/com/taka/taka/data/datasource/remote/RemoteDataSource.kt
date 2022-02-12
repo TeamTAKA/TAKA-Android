@@ -2,8 +2,9 @@ package com.taka.taka.data.datasource.remote
 
 import com.taka.taka.data.datasource.remote.service.TicketService
 import com.taka.taka.data.datasource.remote.service.UserService
+import javax.inject.Inject
 
-class RemoteDataSource(
+class RemoteDataSource @Inject constructor(
     private val userService: UserService,
     private val ticketService: TicketService
 ) {
