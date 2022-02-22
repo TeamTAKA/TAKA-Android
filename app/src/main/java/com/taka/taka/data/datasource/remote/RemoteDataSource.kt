@@ -12,6 +12,8 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun login(body: HashMap<String, Any>) = userService.login(body)
 
+    suspend fun checkId(id: String) = userService.checkId(id)
+
     suspend fun getTickets(userId: Int) = ticketService.getTickets(userId)
 
     suspend fun getTicketDetail(ticketId: Int) = ticketService.getTicketDetail(ticketId)

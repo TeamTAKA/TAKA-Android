@@ -12,4 +12,6 @@ class UserRepositoryImpl @Inject constructor(private val remoteDataSource: Remot
 
     override suspend fun login(body: HashMap<String, Any>): DefaultResponse =
         remoteDataSource.login(body)
+
+    override suspend fun checkId(id: String): DefaultResponse = remoteDataSource.checkId(id)
 }
