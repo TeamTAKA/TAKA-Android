@@ -6,12 +6,12 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface UserService {
-    @POST("/user/signin")
+    @POST("user/signin")
     suspend fun login(body: HashMap<String, Any>): DefaultResponse
 
-    @POST("/user/signup")
+    @POST("user/signup")
     suspend fun signup(body: HashMap<String, Any>): DefaultResponse
 
-    @GET("/auth/checkId/{id}")
+    @GET("auth/checkId/{id}")
     suspend fun checkId(@Path("id") id: String): DefaultResponse
 }
