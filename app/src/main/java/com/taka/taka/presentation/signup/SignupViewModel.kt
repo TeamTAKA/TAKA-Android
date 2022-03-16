@@ -1,6 +1,7 @@
 package com.taka.taka.presentation.signup
 
 import androidx.lifecycle.*
+import com.taka.taka.data.datasource.remote.response.SignupResponse
 import com.taka.taka.domain.repository.TicketRepository
 import com.taka.taka.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +15,7 @@ class SignupViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state = MutableLiveData<String>()
-    val state = _state.distinctUntilChanged()
+    val state: LiveData<String> get() = _state
     private val _isChecked = MutableLiveData<Boolean>()
     val isChecked = _isChecked.distinctUntilChanged()
     private val _signupSuccess = MutableLiveData<Boolean>()
@@ -39,15 +40,36 @@ class SignupViewModel @Inject constructor(
         _isChecked.value = false
     }
 
-    fun signup(id: String, pwd: String) {
+    fun signup(id: String, pwd: String, pwdCheck: String) {
         // id 혹은 pwd가 빈칸인 경우 회원가 불가
         if (id.isBlank() || pwd.isBlank()) {
             _state.value = "아이디와 비밀번호를 입력해 주세요"
-            _signupSuccess.value = false
-            return
-        }
+        } else if (isChecked.value != true) {
+            _state.value = "아이디 중복확인을 해주세요"
+        } else if (pwd != pwdCheck) {
+            _state.value = "비밀번호 확인을 다시 한 번 입력해주세요"
+        } else {
+            viewModelScope.launch {
+                try {
+                    val body = hashMapOf<String, Any>()
+                    body["id"] = id
+                    body["password"] = pwd
 
-        _signupSuccess.value = true
-        TODO("서버 호출")
+                    val response: SignupResponse = userRepository.signup(body)
+
+                    _signupSuccess.value = response.success
+
+                    if (response.success) {
+                        userRepository.setAccessToken(response.data.accessToken)
+                        userRepository.setUserIdx(response.data.userIdx)
+                    } else {
+                        _state.value = response.message
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    _state.value = "회원가입에 실패했습니다"
+                }
+            }
+        }
     }
 }

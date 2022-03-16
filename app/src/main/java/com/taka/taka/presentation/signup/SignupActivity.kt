@@ -34,8 +34,9 @@ class SignupActivity : AppCompatActivity() {
         }
         binding.signupTvSignup.setOnClickListener {
             viewModel.signup(
-                binding.signupEtId.text.toString(),
-                binding.signupEtPwd.text.toString()
+                binding.signupEtId.text.toString().trim(),
+                binding.signupEtPwd.text.toString().trim(),
+                binding.signupEtPwdCheck.text.toString().trim()
             )
         }
         binding.signupEtId.doAfterTextChanged { viewModel.setIdUnchecked() }
