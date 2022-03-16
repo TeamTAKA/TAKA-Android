@@ -4,35 +4,57 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
+import androidx.core.widget.doAfterTextChanged
 import com.taka.taka.presentation.MainActivity
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivitySignupBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignupActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: SignupViewModel
+    private val viewModel: SignupViewModel by viewModels()
     private val binding: ActivitySignupBinding by lazy {
-        ActivitySignupBinding.inflate(
-            layoutInflater
-        )
+        ActivitySignupBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        setContentView(binding.root)
 
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        ).get(SignupViewModel::class.java)
+        initBinding()
+        observeViewModel()
+    }
 
+    private fun initBinding() {
         binding.signupTvLogin.setOnClickListener { finish() }
+        binding.signupTvDuplicate.setOnClickListener {
+            viewModel.checkId(binding.signupEtId.text.toString().trim())
+        }
         binding.signupTvSignup.setOnClickListener {
             viewModel.signup(
-                binding.signupEtId.text.toString(),
-                binding.signupEtPwd.text.toString()
+                binding.signupEtId.text.toString().trim(),
+                binding.signupEtPwd.text.toString().trim(),
+                binding.signupEtPwdCheck.text.toString().trim()
             )
+        }
+        binding.signupEtId.doAfterTextChanged { viewModel.setIdUnchecked() }
+    }
+
+    private fun observeViewModel() {
+        viewModel.isChecked.observe(this) { isChecked ->
+            if (isChecked) {
+                binding.signupTvDuplicate.apply {
+                    text = getString(R.string.signup_duplicate_checked)
+                    setTextColor(resources.getColor(R.color.blue))
+                }
+            } else {
+                binding.signupTvDuplicate.apply {
+                    text = getString(R.string.signup_duplicate_check)
+                    setTextColor(resources.getColor(R.color.orange_red))
+                }
+            }
         }
 
         viewModel.signupSuccess.observe(this) {
@@ -44,6 +66,10 @@ class SignupActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.state.observe(this) { Toast.makeText(this, it, Toast.LENGTH_SHORT).show() }
+        viewModel.state.observe(this) { showToast(it) }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
