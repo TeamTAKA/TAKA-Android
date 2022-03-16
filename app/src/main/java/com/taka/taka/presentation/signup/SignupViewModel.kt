@@ -1,9 +1,6 @@
 package com.taka.taka.presentation.signup
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.taka.taka.domain.repository.TicketRepository
 import com.taka.taka.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,19 +13,22 @@ class SignupViewModel @Inject constructor(
     private val ticketRepository: TicketRepository
 ) : ViewModel() {
 
-    private val _state: MutableLiveData<String> = MutableLiveData()
-    val state: LiveData<String>
-        get() = _state
-    private val _isChecked: MutableLiveData<Boolean> = MutableLiveData()
-    val isChecked: LiveData<Boolean> get() = _isChecked
-    private val _signupSuccess: MutableLiveData<Boolean> = MutableLiveData()
-    val signupSuccess: LiveData<Boolean>
-        get() = _signupSuccess
+    private val _state = MutableLiveData<String>()
+    val state = _state.distinctUntilChanged()
+    private val _isChecked = MutableLiveData<Boolean>()
+    val isChecked = _isChecked.distinctUntilChanged()
+    private val _signupSuccess = MutableLiveData<Boolean>()
+    val signupSuccess = _signupSuccess.distinctUntilChanged()
 
     fun checkId(id: String) {
         viewModelScope.launch {
             try {
-                _isChecked.value = userRepository.checkId(id).success
+                val response = userRepository.checkId(id)
+                _isChecked.value = response.success
+
+                if (!response.success) {
+                    _state.value = response.message
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }

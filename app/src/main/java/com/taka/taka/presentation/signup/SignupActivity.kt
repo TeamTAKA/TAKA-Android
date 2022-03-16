@@ -16,15 +16,18 @@ class SignupActivity : AppCompatActivity() {
 
     private val viewModel: SignupViewModel by viewModels()
     private val binding: ActivitySignupBinding by lazy {
-        ActivitySignupBinding.inflate(
-            layoutInflater
-        )
+        ActivitySignupBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initBinding()
+        observeViewModel()
+    }
+
+    private fun initBinding() {
         binding.signupTvLogin.setOnClickListener { finish() }
         binding.signupTvDuplicate.setOnClickListener {
             viewModel.checkId(binding.signupEtId.text.toString().trim())
@@ -36,7 +39,9 @@ class SignupActivity : AppCompatActivity() {
             )
         }
         binding.signupEtId.doAfterTextChanged { viewModel.setIdUnchecked() }
+    }
 
+    private fun observeViewModel() {
         viewModel.isChecked.observe(this) { isChecked ->
             if (isChecked) {
                 binding.signupTvDuplicate.apply {
@@ -60,6 +65,10 @@ class SignupActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.state.observe(this) { Toast.makeText(this, it, Toast.LENGTH_SHORT).show() }
+        viewModel.state.observe(this) { showToast(it) }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
