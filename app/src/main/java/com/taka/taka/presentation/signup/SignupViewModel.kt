@@ -1,7 +1,6 @@
 package com.taka.taka.presentation.signup
 
 import androidx.lifecycle.*
-import com.taka.taka.data.datasource.remote.response.SignupResponse
 import com.taka.taka.domain.repository.TicketRepository
 import com.taka.taka.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -55,7 +54,7 @@ class SignupViewModel @Inject constructor(
                     body["id"] = id
                     body["password"] = pwd
 
-                    val response: SignupResponse = userRepository.signup(body)
+                    val response = userRepository.signup(body)
 
                     _signupSuccess.value = response.success
 
