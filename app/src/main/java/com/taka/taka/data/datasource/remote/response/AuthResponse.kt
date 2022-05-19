@@ -1,10 +1,10 @@
 package com.taka.taka.data.datasource.remote.response
 
-import com.taka.taka.domain.model.SignupData
+import com.taka.taka.domain.model.AuthData
 
-data class SignupResponse(
+data class AuthResponse(
     val status: Int,
     val success: Boolean,
     val message: String,
-    val data: SignupData
+    val data: AuthData
 )
