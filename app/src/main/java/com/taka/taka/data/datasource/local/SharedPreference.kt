@@ -33,4 +33,12 @@ object SharedPreference {
     fun removeUserIdx() {
         pref?.edit()?.remove(USER_IDX)?.apply()
     }
+
+    // 사용자 아이디
+    private const val USER_ID = "USER_ID"
+    fun getUserId(): String = pref?.getString(USER_ID, "") ?: ""
+    fun setUserId(userId: String) = pref?.edit()?.putString(USER_ID, userId)?.apply()
+    fun removeUserId() {
+        pref?.edit()?.remove(USER_ID)?.apply()
+    }
 }

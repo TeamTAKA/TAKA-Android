@@ -9,9 +9,11 @@ import javax.inject.Inject
 class MypageViewModel @Inject constructor(
     private val userRepository: UserRepository,
 ) : ViewModel() {
+    val userId: String = userRepository.getUserId()
 
     suspend fun logout() {
         userRepository.removeAccessToken()
         userRepository.removeUserIdx()
+        userRepository.removeUserId()
     }
 }

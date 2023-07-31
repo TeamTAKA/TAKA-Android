@@ -13,4 +13,7 @@ interface UserRepository {
     suspend fun setUserIdx(userIdx: Int)
     suspend fun getUserIdx(): Int?
     fun removeUserIdx()
+    suspend fun setUserId(userId: String)
+    fun getUserId(): String
+    fun removeUserId()
 }

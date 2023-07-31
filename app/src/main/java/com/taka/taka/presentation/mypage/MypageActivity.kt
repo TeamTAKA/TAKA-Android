@@ -27,6 +27,8 @@ class MypageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val nickname = "${viewModel.userId}님!"
+        binding.mypageTvNickname.text = nickname
         binding.mypageIvClose.setOnClickListener { finish() }
         binding.mypageTvContact.setOnClickListener { showBottomSheet() }
         binding.mypageTvLogout.setOnClickListener {

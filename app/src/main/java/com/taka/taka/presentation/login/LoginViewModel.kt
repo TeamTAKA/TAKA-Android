@@ -39,6 +39,7 @@ class LoginViewModel @Inject constructor(
                     if (response.success) {
                         userRepository.setAccessToken(response.data.accessToken)
                         userRepository.setUserIdx(response.data.userIdx)
+                        userRepository.setUserId(id)
                     } else {
                         _state.value = response.message
                     }

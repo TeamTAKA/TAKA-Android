@@ -22,4 +22,15 @@ class LocalDataSource @Inject constructor() {
     fun removeUserIdx() {
         SharedPreference.removeUserIdx()
     }
+
+    fun getUserId(): String = SharedPreference.getUserId()
+
+    fun setUserId(userId: String) {
+        SharedPreference.setUserId(userId)
+    }
+
+    fun removeUserId() {
+        SharedPreference.removeUserId()
+    }
+
 }
