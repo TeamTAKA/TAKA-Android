@@ -8,7 +8,7 @@ interface UserRepository {
     suspend fun login(body: HashMap<String, Any>): AuthResponse
     suspend fun checkId(id: String): DefaultResponse
     suspend fun setAccessToken(accessToken: String)
-    suspend fun getAccessToken(): String?
+    fun getAccessToken(): String?
     suspend fun setUserIdx(userIdx: Int)
     suspend fun getUserIdx(): Int?
 }

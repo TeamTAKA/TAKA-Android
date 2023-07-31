@@ -19,7 +19,7 @@ object SharedPreference {
 
     // 로그인 토큰
     private const val ACCESS_TOKEN = "ACCESS_TOKEN"
-    fun getAccessToken(): String? = pref?.getString(ACCESS_TOKEN, "")
+    fun getAccessToken(): String? = pref?.getString(ACCESS_TOKEN, null)
     fun setAccessToken(accessToken: String) =
         pref?.edit()?.putString(ACCESS_TOKEN, accessToken)?.apply()
 

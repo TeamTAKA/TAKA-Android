@@ -23,7 +23,7 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun setAccessToken(accessToken: String) =
         localDataSource.setAccessToken(accessToken)
 
-    override suspend fun getAccessToken(): String? = localDataSource.getAccessToken()
+    override fun getAccessToken(): String? = localDataSource.getAccessToken()
 
     override suspend fun setUserIdx(userIdx: Int) = localDataSource.setUserIdx(userIdx)
 
