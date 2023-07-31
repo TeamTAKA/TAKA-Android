@@ -1,11 +1,13 @@
 package com.taka.taka.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityMainBinding
+import com.taka.taka.presentation.add.AddActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,8 +22,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
 
         binding.mainIvAdd.setOnClickListener {
-            // 다이얼로그 띄우기
-            BottomSheet().show(supportFragmentManager, getString(R.string.add_ticket))
+            startActivity(Intent(this, AddActivity::class.java))
         }
         binding.mainIvHome.setOnClickListener {
             if (navController.currentDestination?.id == R.id.search_fragment)

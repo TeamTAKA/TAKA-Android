@@ -13,10 +13,4 @@
         <item name="android:statusBarColor" tools:targetApi="l">?background</item>
         <!-- Customize your theme here. -->
     </style>
-
-    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="android:background">#00000000</item>
-        <item name="bottomSheetStyle">@drawable/bg_add_dialog</item>
-    </style>
-
 </resources>
