@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 class TicketRepositoryImpl @Inject constructor(private val remoteDataSource: RemoteDataSource) :
     TicketRepository {
-    override suspend fun getTickets(userId: Int): GetTicketsResponse =
-        remoteDataSource.getTickets(userId)
+    override suspend fun getTickets(): GetTicketsResponse =
+        remoteDataSource.getTickets()
 
     override suspend fun getTicketDetail(ticketId: Int): GetTicketDetailResponse =
         remoteDataSource.getTicketDetail(ticketId)

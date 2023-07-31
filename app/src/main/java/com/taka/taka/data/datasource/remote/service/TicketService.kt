@@ -6,21 +6,21 @@ import com.taka.taka.data.datasource.remote.response.GetTicketsResponse
 import retrofit2.http.*
 
 interface TicketService {
-    @GET("/ticket/main/{user_idx}")
-    suspend fun getTickets(@Path("user_idx") userId: Int): GetTicketsResponse
+    @GET("ticket")
+    suspend fun getTickets(): GetTicketsResponse
 
-    @GET("/ticket/{ticket_idx}")
+    @GET("ticket/detail/{ticket_idx}")
     suspend fun getTicketDetail(@Path("ticket_idx") ticketId: Int): GetTicketDetailResponse
 
     @POST("/ticket")
     suspend fun addTicket(body: HashMap<String, Any>): DefaultResponse
 
-    @PUT("/ticket/{ticket_idx}")
+    @PUT("ticket/detail/{ticketIdx}")
     suspend fun editTicket(
         @Path("ticket_idx") ticketId: Int,
         body: HashMap<String, Any>
     ): DefaultResponse
 
-    @DELETE("/ticket/{ticket_idx}")
+    @DELETE("ticket/detail/{ticket_idx}")
     suspend fun deleteTicket(@Path("ticket_idx") ticketId: Int): DefaultResponse
 }

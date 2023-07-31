@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
 
     fun getClient(): Retrofit {
-        val baseUrl = "https://asia-northeast3-taka-1dd38.cloudfunctions.net/api/"
+        val baseUrl = "https://taka-server.com/"
 
         val interceptor = HttpLoggingInterceptor { Log.d("HttpLog", it) }
         val client = OkHttpClient.Builder()
