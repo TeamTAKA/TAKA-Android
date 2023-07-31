@@ -9,9 +9,17 @@ class LocalDataSource @Inject constructor() {
         SharedPreference.setAccessToken(accessToken)
     }
 
+    fun removeAccessToken() {
+        SharedPreference.removeAccessToken()
+    }
+
     fun getUserIdx(): Int? = SharedPreference.getUserIdx()
 
     fun setUserIdx(userIdx: Int) {
         SharedPreference.setUserIdx(userIdx)
+    }
+
+    fun removeUserIdx() {
+        SharedPreference.removeUserIdx()
     }
 }

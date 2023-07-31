@@ -25,7 +25,15 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getAccessToken(): String? = localDataSource.getAccessToken()
 
+    override suspend fun removeAccessToken() {
+        localDataSource.removeAccessToken()
+    }
+
     override suspend fun setUserIdx(userIdx: Int) = localDataSource.setUserIdx(userIdx)
 
     override suspend fun getUserIdx(): Int? = localDataSource.getUserIdx()
+
+    override fun removeUserIdx() {
+        localDataSource.removeUserIdx()
+    }
 }

@@ -1,14 +1,22 @@
 package com.taka.taka.presentation.mypage
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.taka.taka.databinding.ActivityMypageBinding
 import com.taka.taka.databinding.DialogContactBinding
+import com.taka.taka.presentation.login.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MypageActivity : AppCompatActivity() {
 
+    private val viewModel: MypageViewModel by viewModels()
     private val binding: ActivityMypageBinding by lazy {
         ActivityMypageBinding.inflate(
             layoutInflater
@@ -21,6 +29,15 @@ class MypageActivity : AppCompatActivity() {
 
         binding.mypageIvClose.setOnClickListener { finish() }
         binding.mypageTvContact.setOnClickListener { showBottomSheet() }
+        binding.mypageTvLogout.setOnClickListener {
+            lifecycleScope.launch { viewModel.logout() }
+            startActivity(
+                Intent(
+                    this,
+                    LoginActivity::class.java
+                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        }
     }
 
     private fun showBottomSheet() {

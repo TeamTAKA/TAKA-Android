@@ -22,9 +22,15 @@ object SharedPreference {
     fun getAccessToken(): String? = pref?.getString(ACCESS_TOKEN, null)
     fun setAccessToken(accessToken: String) =
         pref?.edit()?.putString(ACCESS_TOKEN, accessToken)?.apply()
+    fun removeAccessToken() {
+        pref?.edit()?.remove(ACCESS_TOKEN)?.apply()
+    }
 
     // 로그인 모드
     private const val USER_IDX = "USER_IDX"
     fun getUserIdx(): Int? = pref?.getInt(USER_IDX, -1)
     fun setUserIdx(userIdx: Int) = pref?.edit()?.putInt(USER_IDX, userIdx)?.apply()
+    fun removeUserIdx() {
+        pref?.edit()?.remove(USER_IDX)?.apply()
+    }
 }
