@@ -2,6 +2,8 @@ package com.taka.taka.data.datasource.remote
 
 import com.taka.taka.data.datasource.remote.service.TicketService
 import com.taka.taka.data.datasource.remote.service.UserService
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
@@ -18,7 +20,7 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getTicketDetail(ticketId: Int) = ticketService.getTicketDetail(ticketId)
 
-    suspend fun addTicket(body: HashMap<String, Any>) = ticketService.addTicket(body)
+    suspend fun addTicket(body: HashMap<String, RequestBody>, file: MultipartBody.Part) = ticketService.addTicket(body, file)
 
     suspend fun editTicket(ticketId: Int, body: HashMap<String, Any>) =
         ticketService.editTicket(ticketId, body)

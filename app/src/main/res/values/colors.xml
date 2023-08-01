@@ -17,4 +17,6 @@
     <color name="dialog_pick_background">#26C4C4C4</color>
     <color name="divider">#DBDBDB</color>
     <color name="text_default">#33000000</color>
+    <color name="image_default">#C4C4C4</color>
+    <color name="inactive">#C0C0C0</color>
 </resources>

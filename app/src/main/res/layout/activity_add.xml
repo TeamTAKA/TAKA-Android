@@ -17,11 +17,10 @@
             android:id="@+id/add_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="14dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/back"
-            android:padding="10dp"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_arrow_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,16 +28,39 @@
             android:id="@+id/add_tv_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_margin="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:fontFamily="@font/pretendard_medium"
             android:padding="10dp"
             android:text="@string/add"
-            android:textColor="@color/orange_red"
-            android:textSize="16dp"
+            android:textColor="@color/inactive"
+            android:textSize="@dimen/font_16_dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpUsage" />
+            tools:enabled="true" />
+
+        <ImageView
+            android:id="@+id/add_iv_poster"
+            android:layout_width="200dp"
+            android:layout_height="280dp"
+            android:background="@color/image_default"
+            android:contentDescription="@string/ticket_poster_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_iv_back" />
+
+        <ImageView
+            android:id="@+id/add_iv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="@string/ticket_image_edit"
+            android:padding="10dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintEnd_toEndOf="@id/add_iv_poster"
+            app:layout_constraintTop_toTopOf="@id/add_iv_poster" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -46,64 +68,113 @@
         android:id="@+id/add_sv_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:layout_marginTop="150dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingTop="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/add_cl_header">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:paddingHorizontal="16dp"
             android:paddingBottom="20dp"
             tools:context=".presentation.add.AddActivity">
 
             <TextView
-                android:id="@+id/add_tv_title"
+                android:id="@+id/add_tv_title_kr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
-                android:text="@string/ticket_title"
+                android:text="@string/ticket_title_kr"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SpUsage" />
 
             <EditText
-                android:id="@+id/add_et_title"
+                android:id="@+id/add_et_title_kr"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:fontFamily="@font/pretendard_regular"
-                android:hint="@string/ticket_title_empty"
+                android:hint="@string/ticket_title_kr_empty"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingVertical="10dp"
+                android:inputType="textImeMultiLine"
+                android:paddingVertical="14dp"
                 android:textColor="@color/text"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/add_tv_title"
+                app:layout_constraintBottom_toBottomOf="@id/add_tv_title_kr"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/add_et_date"
-                app:layout_constraintTop_toTopOf="@id/add_tv_title"
+                app:layout_constraintTop_toTopOf="@id/add_tv_title_kr"
                 tools:ignore="LabelFor,SpUsage" />
 
             <View
+                android:id="@+id/add_divider_title_kr"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="17dp"
                 android:background="@color/divider"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_title" />
+                app:layout_constraintTop_toBottomOf="@id/add_tv_title_kr" />
+
+            <TextView
+                android:id="@+id/add_tv_title_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/ticket_title_en"
+                android:textColor="@color/text_hint"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_title_kr"
+                tools:ignore="SpUsage" />
+
+            <EditText
+                android:id="@+id/add_et_title_en"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="@font/pretendard_regular"
+                android:hint="@string/ticket_title_en_empty"
+                android:importantForAutofill="no"
+                android:inputType="textImeMultiLine"
+                android:paddingVertical="14dp"
+                android:textColor="@color/text"
+                android:textColorHint="@color/text_hint"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/add_tv_title_en"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/add_et_date"
+                app:layout_constraintTop_toTopOf="@id/add_tv_title_en"
+                tools:ignore="LabelFor,SpUsage" />
+
+            <View
+                android:id="@+id/add_divider_title_en"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="17dp"
+                android:background="@color/divider"
+                app:layout_constraintTop_toBottomOf="@id/add_tv_title_en" />
 
             <TextView
                 android:id="@+id/add_tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
                 android:text="@string/ticket_date"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_title"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_title_en"
                 tools:ignore="SpUsage" />
 
             <EditText
@@ -116,7 +187,7 @@
                 android:hint="@string/ticket_date_empty"
                 android:importantForAutofill="no"
                 android:inputType="date"
-                android:paddingVertical="10dp"
+                android:paddingVertical="14dp"
                 android:textColor="@color/text"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16dp"
@@ -127,58 +198,24 @@
                 tools:ignore="LabelFor,SpUsage" />
 
             <View
+                android:id="@+id/add_divider_date"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="17dp"
                 android:background="@color/divider"
                 app:layout_constraintTop_toBottomOf="@id/add_tv_date" />
-
-            <TextView
-                android:id="@+id/add_tv_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
-                android:text="@string/ticket_description"
-                android:textSize="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_date"
-                tools:ignore="SpUsage" />
-
-            <EditText
-                android:id="@+id/add_et_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:fontFamily="@font/pretendard_regular"
-                android:hint="@string/ticket_description_empty"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingVertical="10dp"
-                android:textColor="@color/text"
-                android:textColorHint="@color/text_hint"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/add_tv_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/add_et_date"
-                app:layout_constraintTop_toTopOf="@id/add_tv_description"
-                tools:ignore="LabelFor,SpUsage" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_description" />
 
             <TextView
                 android:id="@+id/add_tv_theater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
                 android:text="@string/ticket_theater"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_description"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_date"
                 tools:ignore="SpUsage" />
 
             <EditText
@@ -189,8 +226,8 @@
                 android:fontFamily="@font/pretendard_regular"
                 android:hint="@string/ticket_theater_empty"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingVertical="10dp"
+                android:inputType="textImeMultiLine"
+                android:paddingVertical="14dp"
                 android:textColor="@color/text"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16dp"
@@ -201,8 +238,10 @@
                 tools:ignore="LabelFor,SpUsage" />
 
             <View
+                android:id="@+id/add_divider_theater"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="17dp"
                 android:background="@color/divider"
                 app:layout_constraintTop_toBottomOf="@id/add_tv_theater" />
 
@@ -210,12 +249,13 @@
                 android:id="@+id/add_tv_seat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
                 android:text="@string/ticket_seat"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_theater"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_theater"
                 tools:ignore="SpUsage" />
 
             <EditText
@@ -226,8 +266,8 @@
                 android:fontFamily="@font/pretendard_regular"
                 android:hint="@string/ticket_seat_empty"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingVertical="10dp"
+                android:inputType="textImeMultiLine"
+                android:paddingVertical="14dp"
                 android:textColor="@color/text"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16dp"
@@ -238,8 +278,10 @@
                 tools:ignore="LabelFor,SpUsage" />
 
             <View
+                android:id="@+id/add_divider_seat"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="17dp"
                 android:background="@color/divider"
                 app:layout_constraintTop_toBottomOf="@id/add_tv_seat" />
 
@@ -247,12 +289,13 @@
                 android:id="@+id/add_tv_cast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
                 android:text="@string/ticket_cast"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_seat"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_seat"
                 tools:ignore="SpUsage" />
 
             <EditText
@@ -263,8 +306,8 @@
                 android:fontFamily="@font/pretendard_regular"
                 android:hint="@string/ticket_cast_empty"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:paddingVertical="10dp"
+                android:inputType="textImeMultiLine"
+                android:paddingVertical="14dp"
                 android:textColor="@color/text"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16dp"
@@ -275,8 +318,10 @@
                 tools:ignore="LabelFor,SpUsage" />
 
             <View
+                android:id="@+id/add_divider_cast"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="17dp"
                 android:background="@color/divider"
                 app:layout_constraintTop_toBottomOf="@id/add_tv_cast" />
 
@@ -284,18 +329,20 @@
                 android:id="@+id/add_tv_review"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
                 android:fontFamily="@font/pretendard_bold"
-                android:paddingVertical="17dp"
                 android:text="@string/ticket_review"
+                android:textColor="@color/text_hint"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tv_cast"
+                app:layout_constraintTop_toBottomOf="@id/add_divider_cast"
                 tools:ignore="SpUsage" />
 
             <EditText
                 android:id="@+id/add_et_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:background="@null"
                 android:fontFamily="@font/pretendard_regular"
                 android:gravity="start"
