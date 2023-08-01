@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
 import com.taka.taka.R
@@ -69,6 +70,12 @@ class AddActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.addEtTitleKr.addTextChangedListener {
+            checkAddable()
+        }
+        binding.addEtDate.addTextChangedListener {
+            checkAddable()
+        }
 
         binding.addTvAdd.setOnClickListener {
             val titleKor = binding.addEtTitleKr.text.toString()
@@ -82,12 +89,6 @@ class AddActivity : AppCompatActivity() {
 
             if (filepath == null) {
                 Toast.makeText(this, getString(R.string.ticket_image_empty), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            } else if (titleKor.isEmpty()) {
-                Toast.makeText(this, getString(R.string.ticket_title_kr_empty), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            } else if (date.isEmpty()) {
-                Toast.makeText(this, getString(R.string.ticket_date_empty), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val file = bitmapToFile(binding.addIvPoster.drawable.toBitmap()) ?: return@setOnClickListener
@@ -128,6 +129,11 @@ class AddActivity : AppCompatActivity() {
             e.printStackTrace()
         }
         return null
+    }
+
+    private fun checkAddable() {
+        binding.addTvAdd.isEnabled =
+            binding.addEtTitleKr.text.isNotBlank() && binding.addEtDate.text.isNotBlank()
     }
 
     private fun openGallery() {
