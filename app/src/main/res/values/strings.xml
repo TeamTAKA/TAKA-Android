@@ -29,6 +29,7 @@
     <!-- 홈 화면 -->
     <string name="home_title">MY TICKETS</string>
     <string name="home_tickets_empty">버튼을 눌러\n티켓을 추가해보세요</string>
+    <string name="ticket_title_default">MUSICAL</string>
     <!-- 티켓 등록 화면 -->
     <string name="add">등록</string>
     <string name="ticket_title_kr">국문명</string>

@@ -1,66 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray_light">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ticket_card_iv_poster"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_ticket_card"
-        android:contentDescription="@string/ticket_poster_image"
-        android:paddingHorizontal="10dp"
-        android:paddingBottom="150dp"
-        android:src="@drawable/ic_ticket_sample"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/ticket_card_tv_title_en"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="3dp"
-        android:fontFamily="@font/taka_regular"
-        android:gravity="center"
-        android:text="@string/ticket_title_en_sample"
-        android:textColor="@color/black"
-        android:textSize="46dp"
-        app:layout_constraintBottom_toTopOf="@id/ticket_card_tv_title_kr"
-        app:layout_constraintEnd_toEndOf="@id/ticket_card_iv_poster"
-        app:layout_constraintStart_toStartOf="@id/ticket_card_iv_poster" />
+        <ImageView
+            android:id="@+id/shadow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@id/ticket"
+            app:layout_constraintEnd_toEndOf="@id/ticket"
+            app:layout_constraintStart_toStartOf="@id/ticket"
+            app:layout_constraintTop_toTopOf="@id/ticket" />
 
-    <TextView
-        android:id="@+id/ticket_card_tv_title_kr"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="32dp"
-        android:ellipsize="end"
-        android:fontFamily="@font/pretendard_regular"
-        android:gravity="center"
-        android:text="@string/ticket_title_kr_sample"
-        android:textColor="@color/text_hint"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@id/ticket_card_tv_date"
-        app:layout_constraintEnd_toEndOf="@id/ticket_card_iv_poster"
-        app:layout_constraintStart_toStartOf="@id/ticket_card_iv_poster" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="285dp"
+            android:layout_height="540dp"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            android:elevation="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/ticket_card_tv_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:fontFamily="@font/taka_regular"
-        android:text="@string/ticket_date_sample"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/ticket_card_iv_poster"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="match_parent"
+                android:layout_height="399dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_ticket_sample" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/title_eng"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/taka_regular"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/ticket_title_en_sample"
+                android:textColor="@color/black"
+                android:textSize="46dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_poster"
+                tools:text="ORPAHORPAHORPAH" />
+
+            <TextView
+                android:id="@+id/title_kr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/pretendard_regular"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/ticket_title_kr_sample"
+                android:textColor="@color/text_hint"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_eng"
+                tools:text="가나다라마바사아자차카타파하가나다라마바" />
+
+            <TextView
+                android:id="@+id/ticket_card_tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/ticket_date_sample"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -41,9 +41,9 @@
         android:contentDescription="@string/mypage_icon"
         android:padding="10dp"
         android:src="@drawable/ic_my_page"
-        app:layout_constraintBottom_toBottomOf="@id/home_iv_mode"
+        app:layout_constraintBottom_toBottomOf="@id/home_tv_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/home_iv_mode" />
+        app:layout_constraintTop_toTopOf="@id/home_tv_title" />
 
     <TextView
         android:id="@+id/home_tv_empty"
@@ -64,8 +64,11 @@
         android:id="@+id/home_vp_tickets"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="13dp"
         android:clipChildren="false"
         android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
