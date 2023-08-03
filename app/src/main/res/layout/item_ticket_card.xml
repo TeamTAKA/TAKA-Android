@@ -84,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/major_mono_display_regular"
                 android:text="@string/ticket_date_sample"
                 android:textColor="@color/black"
                 android:textSize="16dp"
