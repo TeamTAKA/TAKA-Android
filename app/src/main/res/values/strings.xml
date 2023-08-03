@@ -52,7 +52,10 @@
     <string name="ticket_image_edit">포스터 이미지 편집 버튼</string>
     <string name="home_imageview_mode">티켓 뷰 변경 아이콘</string>
     <string name="error_ticket_add_failed">티켓 추가 실패</string>
-
+    <!-- 티켓 상세 -->
+    <string name="menu_edit">수정하기</string>
+    <string name="menu_delete">삭제하기</string>
+    <string name="menu_share">공유하기</string>
     <!-- 마이페이지 -->
     <string name="mypage_icon">마이페이지 아이콘</string>
     <string name="mypage_hello">안녕하세요</string>

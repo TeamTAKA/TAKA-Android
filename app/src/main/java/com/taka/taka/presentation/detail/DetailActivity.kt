@@ -2,6 +2,9 @@ package com.taka.taka.presentation.detail
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -60,6 +63,30 @@ class DetailActivity : AppCompatActivity() {
                     .into(binding.detailIvPoster)
             }
         }
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.ticket_menu, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_delete -> {
+
+            }
+            R.id.menu_edit -> {
+
+            }
+            R.id.menu_share -> {
+
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 
     companion object {
