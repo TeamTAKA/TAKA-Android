@@ -24,8 +24,12 @@ class TicketRepositoryImpl @Inject constructor(private val remoteDataSource: Rem
     override suspend fun addTicket(body: HashMap<String, RequestBody>, file: MultipartBody.Part): DefaultResponse =
         remoteDataSource.addTicket(body, file)
 
-    override suspend fun editTicket(ticketId: Int, body: HashMap<String, Any>): DefaultResponse =
-        remoteDataSource.editTicket(ticketId, body)
+    override suspend fun editTicket(
+        ticketId: Int,
+        body: HashMap<String, RequestBody>,
+        file: MultipartBody.Part,
+    ): DefaultResponse =
+        remoteDataSource.editTicket(ticketId, body, file)
 
     override suspend fun deleteTicket(ticketId: Int): DefaultResponse =
         remoteDataSource.deleteTicket(ticketId)

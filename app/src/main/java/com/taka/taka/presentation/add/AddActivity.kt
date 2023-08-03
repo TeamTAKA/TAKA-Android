@@ -15,8 +15,11 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT
 import com.google.android.material.snackbar.Snackbar
+import com.bumptech.glide.Glide
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityAddBinding
+import com.taka.taka.domain.model.Ticket
+import com.taka.taka.presentation.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.FileOutputStream
@@ -27,6 +30,8 @@ class AddActivity : AppCompatActivity() {
 
     private val binding: ActivityAddBinding by lazy { ActivityAddBinding.inflate(layoutInflater) }
     private val viewModel: AddViewModel by viewModels()
+    private var isEditMode: Boolean = false
+    private var ticketId: Int = 0
     var filepath: String? = null
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -52,6 +57,24 @@ class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        val ticket: Ticket? = intent.extras?.get(DetailActivity.TICKET_KEY) as? Ticket
+        ticket?.let {
+            isEditMode = true
+            ticketId = it.id
+            binding.addEtTitleKr.setText(it.titleKr)
+            binding.addEtTitleEn.setText(it.titleEn)
+            binding.addEtDate.setText(it.date)
+            binding.addEtTheater.setText(it.theater)
+            binding.addEtSeat.setText(it.seat)
+            binding.addEtCast.setText(it.cast)
+            binding.addEtReview.setText(it.review)
+            Glide
+                .with(binding.addIvPoster)
+                .load(it.img)
+                .into(binding.addIvPoster)
+            filepath = "filepath"
+        }
 
         binding.addIvBack.setOnClickListener { finish() }
         // 포스터 이미지 선택
@@ -93,17 +116,32 @@ class AddActivity : AppCompatActivity() {
             }
             val file = bitmapToFile(binding.addIvPoster.drawable.toBitmap()) ?: return@setOnClickListener
 
-            viewModel.addTicket(
-                file,
-                titleKor,
-                titleEng,
-                date,
-                hall,
-                seat,
-                cast,
-                seller,
-                review
-            )
+            if (isEditMode) {
+                viewModel.editTicket(
+                    ticketId,
+                    file,
+                    titleKor,
+                    titleEng,
+                    date,
+                    hall,
+                    seat,
+                    cast,
+                    seller,
+                    review
+                )
+            } else {
+                viewModel.addTicket(
+                    file,
+                    titleKor,
+                    titleEng,
+                    date,
+                    hall,
+                    seat,
+                    cast,
+                    seller,
+                    review
+                )
+            }
         }
 
         viewModel.addSuccess.observe(this) { isSuccess ->

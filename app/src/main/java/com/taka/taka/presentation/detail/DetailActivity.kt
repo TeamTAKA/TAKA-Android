@@ -1,5 +1,6 @@
 package com.taka.taka.presentation.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.ContextMenu
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityDetailBinding
 import com.taka.taka.domain.model.Ticket
+import com.taka.taka.presentation.add.AddActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -40,8 +42,16 @@ class DetailActivity : AppCompatActivity() {
         binding.detailTvReview.movementMethod = ScrollingMovementMethod()
 
         ticketId = intent.extras?.getInt(TICKET_ID_KEY)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ticketId?.let { getTicketDetail(it) }
+    }
+
+    private fun getTicketDetail(ticketId: Int) {
         lifecycleScope.launch {
-            viewModel.getTicket(ticketId!!)?.let {
+            viewModel.getTicket(ticketId)?.let {
                 ticket = it
                 binding.detailTvDate.text = it.date
                 binding.detailTvTitleEng.text = it.titleEn.ifBlank { getString(R.string.ticket_title_default) }
@@ -80,7 +90,9 @@ class DetailActivity : AppCompatActivity() {
 
             }
             R.id.menu_edit -> {
-
+                startActivity(Intent(this, AddActivity::class.java).apply {
+                    putExtra(TICKET_KEY, ticket)
+                })
             }
             R.id.menu_share -> {
 
@@ -91,5 +103,6 @@ class DetailActivity : AppCompatActivity() {
 
     companion object {
         const val TICKET_ID_KEY = "ticketId"
+        const val TICKET_KEY = "ticket"
     }
 }

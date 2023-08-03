@@ -25,10 +25,12 @@ interface TicketService {
         @Part file: MultipartBody.Part
     ): DefaultResponse
 
+    @Multipart
     @PUT("ticket/detail/{ticketIdx}")
     suspend fun editTicket(
-        @Path("ticket_idx") ticketId: Int,
-        body: HashMap<String, Any>
+        @Path("ticketIdx") ticketId: Int,
+        @PartMap body: HashMap<String, RequestBody>,
+        @Part file: MultipartBody.Part
     ): DefaultResponse
 
     @DELETE("ticket/detail/{ticket_idx}")

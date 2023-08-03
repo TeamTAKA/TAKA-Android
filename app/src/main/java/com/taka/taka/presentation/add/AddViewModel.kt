@@ -61,4 +61,40 @@ class AddViewModel @Inject constructor(
             }
         }
     }
+
+    fun editTicket(
+        ticketId: Int,
+        file: File,
+        titleKor: String,
+        titleEng: String,
+        date: String,
+        hall: String,
+        seat: String,
+        cast: String,
+        seller: String,
+        review: String
+    ) {
+        viewModelScope.launch {
+            try {
+                val body = hashMapOf<String, RequestBody>()
+                body["titleKor"] = titleKor.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["titleEng"] = titleEng.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["date"] = date.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["hall"] = hall.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["seat"] = seat.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["cast"] = cast.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["seller"] = seller.toRequestBody("text/plain".toMediaTypeOrNull())
+                body["review"] = review.toRequestBody("text/plain".toMediaTypeOrNull())
+                val fileRequestBody: RequestBody = file.asRequestBody("image/png".toMediaTypeOrNull())
+                val filePart = MultipartBody.Part.createFormData("img", file.name, fileRequestBody)
+
+                val response = ticketRepository.editTicket(ticketId, body, filePart)
+
+                _addSuccess.value = response.success
+            } catch (e: Exception) {
+                _state.value = "티켓 수정에 실패했습니다"
+                e.printStackTrace()
+            }
+        }
+    }
 }
