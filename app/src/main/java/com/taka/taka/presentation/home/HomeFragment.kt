@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
 import com.taka.taka.databinding.FragmentHomeBinding
 import com.taka.taka.presentation.home.adapter.TicketCardAdapter
 import com.taka.taka.presentation.mypage.MypageActivity
@@ -44,10 +45,17 @@ class HomeFragment : Fragment() {
         binding.homeVpTickets.adapter = TicketCardAdapter { ticketId ->
             //상세화면으로 이동
         }
+        binding.homeVpTickets.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.homeTvCurrentTicket.text = (position+1).toString()
+            }
+        })
 
         lifecycleScope.launch {
             viewModel.getTickets().let { ticketCards ->
                 binding.homeTvEmpty.isVisible = ticketCards.isEmpty()
+                binding.homeTvTicketCount.text = "/${ticketCards.size}"
                 (binding.homeVpTickets.adapter as TicketCardAdapter).setTicketList(viewModel.getTickets())
             }
         }
