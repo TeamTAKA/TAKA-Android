@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.taka.taka.domain.model.Ticket
+import com.taka.taka.domain.model.TicketGroup
 import com.taka.taka.domain.repository.TicketRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -28,5 +29,20 @@ class HomeViewModel @Inject constructor(
             e.printStackTrace()
         }
         return tickets
+    }
+
+    suspend fun getTicketGroups(): List<TicketGroup> {
+        var ticketGroups = emptyList<TicketGroup>()
+        try {
+            val response = ticketRepository.getTicketGroups()
+
+            if (response.success) {
+                ticketGroups = response.data
+            }
+        } catch (e: Exception) {
+            _state.value = "티켓 그룹 조회에 실패했습니다"
+            e.printStackTrace()
+        }
+        return ticketGroups
     }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_light">
+
+    <LinearLayout
+        android:id="@+id/ticket_group_ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/ticket_group_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="25dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/taka_regular"
+            android:text="@string/ticket_title_en_sample"
+            android:textColor="@color/orange_red"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/ticket_group_iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="리스트 펼치기"
+            android:padding="10dp"
+            android:src="@drawable/ic_list_open" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ticket_group_rv_tickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/ticket_group_ll_title"
+        app:spanCount="2"
+        tools:listitem="@layout/item_ticket_box"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

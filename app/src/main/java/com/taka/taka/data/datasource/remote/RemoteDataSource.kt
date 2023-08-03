@@ -18,6 +18,8 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getTickets() = ticketService.getTickets()
 
+    suspend fun getTicketGroups() = ticketService.getTicketGroups()
+
     suspend fun getTicketDetail(ticketId: Int) = ticketService.getTicketDetail(ticketId)
 
     suspend fun addTicket(body: HashMap<String, RequestBody>, file: MultipartBody.Part) = ticketService.addTicket(body, file)

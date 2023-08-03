@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ticket_box_iv_poster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="5:7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_ticket_sample" />
+
+    <TextView
+        android:id="@+id/ticket_box_tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#59000000"
+        android:fontFamily="@font/major_mono_display_regular"
+        android:gravity="center"
+        android:letterSpacing="-0.21"
+        android:paddingTop="7dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="2022.07.17" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
