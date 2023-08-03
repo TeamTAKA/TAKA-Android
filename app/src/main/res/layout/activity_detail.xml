@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    tools:context=".presentation.detail.DetailActivity">
+
+    <ImageView
+        android:id="@+id/detail_iv_poster"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_ticket_sample" />
+
+    <View
+        android:id="@+id/poster_dim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#26000000"
+        app:layout_constraintBottom_toBottomOf="@id/detail_iv_poster"
+        app:layout_constraintEnd_toEndOf="@id/detail_iv_poster"
+        app:layout_constraintStart_toStartOf="@id/detail_iv_poster"
+        app:layout_constraintTop_toTopOf="@id/detail_iv_poster" />
+
+    <ImageButton
+        android:id="@+id/detail_ib_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="28dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_back_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/detail_ib_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="7dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/detail_iv_ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/ticket_detail_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1.97"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_ib_menu" />
+
+    <TextView
+        android:id="@+id/detail_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/major_mono_display_regular"
+        android:letterSpacing="-0.21"
+        android:textColor="#99000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/detail_iv_ticket"
+        app:layout_constraintTop_toTopOf="@id/detail_iv_ticket"
+        tools:text="2021.5.27" />
+
+    <TextView
+        android:id="@+id/detail_tv_title_eng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/taka_regular"
+        android:textColor="@color/text"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_tv_date"
+        tools:text="ELEZABETHLON" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_double_dot"
+        app:layout_constraintEnd_toStartOf="@id/tv_number"
+        app:layout_constraintTop_toTopOf="@id/tv_number" />
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/major_mono_display_regular"
+        android:includeFontPadding="false"
+        android:letterSpacing="-0.21"
+        android:textColor="@color/black"
+        android:textSize="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/detail_iv_ticket"
+        tools:text="30" />
+
+    <TextView
+        android:id="@+id/detail_tv_title_kor_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="제목"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_tv_title_eng" />
+
+    <TextView
+        android:id="@+id/detail_tv_title_kor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="end"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detail_tv_title_kor_label"
+        app:layout_constraintTop_toTopOf="@id/detail_tv_title_kor_label"
+        tools:text="제목" />
+
+    <TextView
+        android:id="@+id/detail_tv_seat_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="좌석정보"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_tv_title_kor_label" />
+
+    <TextView
+        android:id="@+id/detail_tv_seat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="end"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/detail_tv_title_kor"
+        app:layout_constraintStart_toEndOf="@id/detail_tv_seat_label"
+        app:layout_constraintTop_toTopOf="@id/detail_tv_seat_label"
+        tools:text="제목" />
+
+    <TextView
+        android:id="@+id/detail_tv_cast_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="캐스트"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_tv_seat_label" />
+
+    <TextView
+        android:id="@+id/detail_tv_cast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="end"
+        android:textColor="@color/text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/detail_tv_title_kor"
+        app:layout_constraintStart_toEndOf="@id/detail_tv_cast_label"
+        app:layout_constraintTop_toTopOf="@id/detail_tv_cast_label"
+        tools:text="제목" />
+
+    <View
+        android:id="@+id/detail_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="#CC000000"
+        app:layout_constraintEnd_toEndOf="@id/detail_tv_title_kor"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_title_kor_label"
+        app:layout_constraintTop_toBottomOf="@id/detail_tv_cast" />
+
+    <TextView
+        android:id="@+id/detail_tv_review"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="start"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical"
+        android:textColor="@color/text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/detail_iv_ticket"
+        app:layout_constraintEnd_toEndOf="@id/detail_tv_title_kor"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_divider"
+        tools:text="거선의 어디 뼈 고행을 봄바람이다. 이상은 우리 고동을 있음으로써 돋고, 생명을 바이며, 되려니와, 보라. 대중을 사랑의 청춘을 그러므로 끓는다. 품으며, 창공에 생명을 있으랴? 사는가 보는 동력은 인생의 봄날의 찾아 들어 것이다. 낙원을 인생을 있을 풀이 말이다. 이상의 튼튼하며, 크고 가지에 품으며, 것은 힘차게 낙원을 싹이 철환하였거선의 어디 뼈 고행을 . 대중을 사랑의 청춘을 그러므로 끓는다. 품으며, 창공에 생명을 있으랴? 사는가 보는 동력은 인생의 봄날의 찾아 대중을 사랑의 청춘을 그러므로 끓는다. " />
+
+    <TextView
+        android:id="@+id/tv_review_add_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="나만의 감상평을\n추가해보세요"
+        android:textColor="#bdbdbd"
+        android:textSize="18dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/detail_iv_ticket"
+        app:layout_constraintEnd_toEndOf="@id/detail_tv_title_kor"
+        app:layout_constraintStart_toStartOf="@id/detail_tv_date"
+        app:layout_constraintTop_toBottomOf="@id/detail_divider" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

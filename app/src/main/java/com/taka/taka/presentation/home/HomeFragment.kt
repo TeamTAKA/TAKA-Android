@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.taka.taka.R
 import com.taka.taka.databinding.FragmentHomeBinding
+import com.taka.taka.presentation.detail.DetailActivity
 import com.taka.taka.presentation.home.adapter.TicketCardAdapter
 import com.taka.taka.presentation.home.adapter.TicketGroupAdapter
 import com.taka.taka.presentation.mypage.MypageActivity
@@ -65,7 +66,10 @@ class HomeFragment : Fragment() {
 
         // 티켓 이미지 뷰페이저 설정
         binding.homeVpTickets.adapter = TicketCardAdapter { ticketId ->
-            //상세화면으로 이동
+            startActivity(
+                Intent(context, DetailActivity::class.java)
+                    .putExtra(DetailActivity.TICKET_ID_KEY, ticketId)
+            )
         }
         binding.homeVpTickets.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -75,7 +79,10 @@ class HomeFragment : Fragment() {
         })
         // 티켓 그룹 목록
         binding.homeRvTickets.adapter = TicketGroupAdapter { ticketId ->
-            //상세화면으로 이동
+            startActivity(
+                Intent(context, DetailActivity::class.java)
+                    .putExtra(DetailActivity.TICKET_ID_KEY, ticketId)
+            )
         }
 
         lifecycleScope.launch {
