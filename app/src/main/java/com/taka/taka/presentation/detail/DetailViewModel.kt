@@ -15,6 +15,9 @@ class DetailViewModel @Inject constructor(
     private val _state: MutableLiveData<String> = MutableLiveData()
     val state: LiveData<String>
         get() = _state
+    private val _deleteSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val deleteSuccess: LiveData<Boolean>
+        get() = _deleteSuccess
 
     suspend fun getTicket(ticketId: Int): Ticket? {
         var ticket: Ticket? = null
@@ -29,5 +32,15 @@ class DetailViewModel @Inject constructor(
             e.printStackTrace()
         }
         return ticket
+    }
+
+    suspend fun deleteTicket(ticketId: Int) {
+        try {
+            val response = ticketRepository.deleteTicket(ticketId)
+            _deleteSuccess.value = response.success
+        } catch (e: Exception) {
+            _state.value = "티켓을 삭제하지 못했습니다"
+            e.printStackTrace()
+        }
     }
 }

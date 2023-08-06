@@ -1,5 +1,6 @@
 package com.taka.taka.presentation.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -30,6 +32,13 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by activityViewModels()
     private var isModeGroup = false
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            getTickets()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +75,7 @@ class HomeFragment : Fragment() {
 
         // 티켓 이미지 뷰페이저 설정
         binding.homeVpTickets.adapter = TicketCardAdapter { ticketId ->
-            startActivity(
+            resultLauncher.launch(
                 Intent(context, DetailActivity::class.java)
                     .putExtra(DetailActivity.TICKET_ID_KEY, ticketId)
             )
@@ -79,12 +88,19 @@ class HomeFragment : Fragment() {
         })
         // 티켓 그룹 목록
         binding.homeRvTickets.adapter = TicketGroupAdapter { ticketId ->
-            startActivity(
+            resultLauncher.launch(
                 Intent(context, DetailActivity::class.java)
                     .putExtra(DetailActivity.TICKET_ID_KEY, ticketId)
             )
         }
+        getTickets()
 
+        viewModel.state.observe(this) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getTickets() {
         lifecycleScope.launch {
             viewModel.getTickets().let { ticketCards ->
                 binding.homeTvEmpty.isVisible = ticketCards.isEmpty()
@@ -94,10 +110,6 @@ class HomeFragment : Fragment() {
             viewModel.getTicketGroups().let { ticketGroups ->
                 (binding.homeRvTickets.adapter as TicketGroupAdapter).setTicketGroupList(ticketGroups)
             }
-        }
-
-        viewModel.state.observe(this) {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
     }
 

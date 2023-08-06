@@ -1,5 +1,6 @@
 package com.taka.taka.presentation.detail
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -42,6 +43,13 @@ class DetailActivity : AppCompatActivity() {
         binding.detailTvReview.movementMethod = ScrollingMovementMethod()
 
         ticketId = intent.extras?.getInt(TICKET_ID_KEY)
+
+        viewModel.deleteSuccess.observe(this) { success ->
+            if (success) {
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
+        }
     }
 
     override fun onResume() {
@@ -87,7 +95,11 @@ class DetailActivity : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_delete -> {
-
+                lifecycleScope.launch {
+                    ticketId?.let {
+                        viewModel.deleteTicket(it)
+                    }
+                }
             }
             R.id.menu_edit -> {
                 startActivity(Intent(this, AddActivity::class.java).apply {
