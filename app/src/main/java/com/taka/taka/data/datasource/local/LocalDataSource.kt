@@ -33,6 +33,10 @@ class LocalDataSource @Inject constructor() {
         SharedPreference.removeUserId()
     }
 
+    fun getRecentKeywords(): List<String> {
+        return SharedPreference.getRecentKeywords()
+    }
+
     fun addRecentKeyword(keyword: String) {
         SharedPreference.addRecentKeyword(keyword)
     }

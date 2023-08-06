@@ -11,6 +11,13 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val keywordRepository: KeywordRepository
 ) : ViewModel() {
+
+    fun getRecentKeywords(): List<String> {
+        var keywords = emptyList<String>()
+        viewModelScope.launch { keywords = keywordRepository.getRecentKeywords() }
+        return keywords
+    }
+
     fun addKeyword(keyword: String) {
         viewModelScope.launch {
             keywordRepository.addRecentKeyword(keyword)

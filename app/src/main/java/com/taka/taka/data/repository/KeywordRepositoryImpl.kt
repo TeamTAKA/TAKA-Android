@@ -5,6 +5,10 @@ import com.taka.taka.domain.repository.KeywordRepository
 import javax.inject.Inject
 
 class KeywordRepositoryImpl @Inject constructor(private val localDataSource: LocalDataSource) : KeywordRepository{
+    override suspend fun getRecentKeywords(): List<String> {
+        return localDataSource.getRecentKeywords()
+    }
+
     override suspend fun addRecentKeyword(keyword: String) {
         localDataSource.addRecentKeyword(keyword)
     }
