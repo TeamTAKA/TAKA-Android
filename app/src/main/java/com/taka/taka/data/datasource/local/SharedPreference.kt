@@ -3,6 +3,8 @@ package com.taka.taka.data.datasource.local
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 object SharedPreference {
     private var pref: SharedPreferences? = null
@@ -40,5 +42,20 @@ object SharedPreference {
     fun setUserId(userId: String) = pref?.edit()?.putString(USER_ID, userId)?.apply()
     fun removeUserId() {
         pref?.edit()?.remove(USER_ID)?.apply()
+    }
+
+    // 최근 검색어
+    private const val RECENT_KEYWORD = "RECENT_KEYWORD"
+    fun getRecentKeywords(): List<String> {
+        val json = pref?.getString(RECENT_KEYWORD, "[]") ?: "[]"
+        val type = object : TypeToken<List<String>>() {}.type
+        return Gson().fromJson(json, type)
+    }
+
+    fun addRecentKeyword(keyword: String) {
+        val keywords = getRecentKeywords().toMutableList()
+        keywords.remove(keyword)
+        keywords.add(0, keyword)
+        pref?.edit()?.putString(RECENT_KEYWORD, Gson().toJson(keywords))?.apply()
     }
 }

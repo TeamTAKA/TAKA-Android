@@ -1,7 +1,9 @@
 package com.taka.taka.di
 
+import com.taka.taka.data.repository.KeywordRepositoryImpl
 import com.taka.taka.data.repository.TicketRepositoryImpl
 import com.taka.taka.data.repository.UserRepositoryImpl
+import com.taka.taka.domain.repository.KeywordRepository
 import com.taka.taka.domain.repository.TicketRepository
 import com.taka.taka.domain.repository.UserRepository
 import dagger.Binds
@@ -17,4 +19,7 @@ interface RepositoryModule {
 
     @Binds
     fun bindTicketRepository(ticketRepositoryImpl: TicketRepositoryImpl): TicketRepository
+
+    @Binds
+    fun bindKeywordRepository(keywordRepositoryImpl: KeywordRepositoryImpl): KeywordRepository
 }
