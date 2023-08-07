@@ -28,6 +28,7 @@ class SearchFragment : Fragment() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
+            binding.etKeyword.text.clear()
             getRecentKeywords()
         }
     }
