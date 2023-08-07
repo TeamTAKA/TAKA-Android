@@ -34,7 +34,7 @@ class SearchFragment : Fragment() {
     }
     private val keywordAdapter: RecentKeywordAdapter by lazy {
         RecentKeywordAdapter { keyword ->
-            //검색
+            search(keyword)
         }
     }
 
@@ -61,9 +61,7 @@ class SearchFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-            resultLauncher.launch(Intent(context, SearchResultActivity::class.java).apply {
-                putExtra(KEYWORD_KEY, keyword)
-            })
+            search(keyword)
         }
 
         getRecentKeywords()
@@ -76,5 +74,11 @@ class SearchFragment : Fragment() {
             binding.tvDeleteAll.isVisible = it.isNotEmpty()
             binding.rvKeywords.isVisible = it.isNotEmpty()
         }
+    }
+
+    private fun search(keyword: String) {
+        resultLauncher.launch(Intent(context, SearchResultActivity::class.java).apply {
+            putExtra(KEYWORD_KEY, keyword)
+        })
     }
 }
