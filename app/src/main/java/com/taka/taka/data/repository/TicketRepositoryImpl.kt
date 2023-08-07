@@ -34,4 +34,6 @@ class TicketRepositoryImpl @Inject constructor(private val remoteDataSource: Rem
     override suspend fun deleteTicket(ticketId: Int): DefaultResponse =
         remoteDataSource.deleteTicket(ticketId)
 
+    override suspend fun searchTickets(body: HashMap<String, Any>): GetTicketGroupsResponse =
+        remoteDataSource.searchTickets(body)
 }

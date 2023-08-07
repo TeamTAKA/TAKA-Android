@@ -1,15 +1,19 @@
 package com.taka.taka.presentation.search
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.taka.taka.R
 import com.taka.taka.databinding.FragmentSearchBinding
+import com.taka.taka.presentation.search.SearchResultActivity.Companion.KEYWORD_KEY
 
 class SearchFragment : Fragment() {
 
@@ -20,6 +24,18 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SearchViewModel by activityViewModels()
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            getRecentKeywords()
+        }
+    }
+    private val keywordAdapter: RecentKeywordAdapter by lazy {
+        RecentKeywordAdapter { keyword ->
+            //검색
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +48,6 @@ class SearchFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val keywordAdapter = RecentKeywordAdapter { keyword ->
-            //검색
-        }
         binding.rvKeywords.adapter = keywordAdapter
         binding.ivSearch.setOnClickListener {
             val keyword = binding.etKeyword.text.toString().trim()
@@ -47,9 +60,15 @@ class SearchFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
-            viewModel.addKeyword(keyword)
+            resultLauncher.launch(Intent(context, SearchResultActivity::class.java).apply {
+                putExtra(KEYWORD_KEY, keyword)
+            })
         }
 
+        getRecentKeywords()
+    }
+
+    private fun getRecentKeywords() {
         viewModel.getRecentKeywords().let {
             keywordAdapter.setKeywordList(it)
             binding.tvRecent.isVisible = it.isNotEmpty()
@@ -57,5 +76,4 @@ class SearchFragment : Fragment() {
             binding.rvKeywords.isVisible = it.isNotEmpty()
         }
     }
-
 }

@@ -31,4 +31,6 @@ class RemoteDataSource @Inject constructor(
     ) = ticketService.editTicket(ticketId, body, file)
 
     suspend fun deleteTicket(ticketId: Int) = ticketService.deleteTicket(ticketId)
+
+    suspend fun searchTickets(body: HashMap<String, Any>) = ticketService.searchTicket(body)
 }

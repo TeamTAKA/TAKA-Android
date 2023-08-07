@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.search.SearchResultActivity">
+
+    <EditText
+        android:id="@+id/et_keyword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:hint="@string/search_edit_label"
+        android:inputType="textImeMultiLine"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_hint"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/iv_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/search_button_label"
+        android:src="@drawable/ic_search_small"
+        app:layout_constraintBottom_toBottomOf="@id/et_keyword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/et_keyword" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="11dp"
+        android:background="@color/orange_red"
+        app:layout_constraintTop_toBottomOf="@id/et_keyword" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tickets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="34dp"
+        android:background="@color/gray_light"
+        android:clipToPadding="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="65dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:listitem="@layout/item_ticket_group" />
+
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_result_empty"
+        android:textColor="#C2C2C2"
+        android:textSize="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rv_tickets"
+        app:layout_constraintEnd_toEndOf="@id/rv_tickets"
+        app:layout_constraintStart_toStartOf="@id/rv_tickets"
+        app:layout_constraintTop_toTopOf="@id/rv_tickets" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

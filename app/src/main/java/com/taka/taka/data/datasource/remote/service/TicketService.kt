@@ -35,4 +35,7 @@ interface TicketService {
 
     @DELETE("ticket/detail/{ticket_idx}")
     suspend fun deleteTicket(@Path("ticket_idx") ticketId: Int): DefaultResponse
+
+    @POST("ticket/search")
+    suspend fun searchTicket(@Body body: HashMap<String, Any>): GetTicketGroupsResponse
 }

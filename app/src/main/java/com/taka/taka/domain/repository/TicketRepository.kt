@@ -14,4 +14,5 @@ interface TicketRepository {
     suspend fun addTicket(body: HashMap<String, RequestBody>, file: MultipartBody.Part): DefaultResponse
     suspend fun editTicket(ticketId: Int, body: HashMap<String, RequestBody>, file: MultipartBody.Part): DefaultResponse
     suspend fun deleteTicket(ticketId: Int): DefaultResponse
+    suspend fun searchTickets(body: HashMap<String, Any>): GetTicketGroupsResponse
 }

@@ -17,11 +17,4 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch { keywords = keywordRepository.getRecentKeywords() }
         return keywords
     }
-
-    fun addKeyword(keyword: String) {
-        viewModelScope.launch {
-            keywordRepository.addRecentKeyword(keyword)
-        }
-    }
-
 }
