@@ -12,4 +12,8 @@ class KeywordRepositoryImpl @Inject constructor(private val localDataSource: Loc
     override suspend fun addRecentKeyword(keyword: String) {
         localDataSource.addRecentKeyword(keyword)
     }
+
+    override suspend fun deleteRecentKeyword(keyword: String) {
+        localDataSource.deleteRecentKeyword(keyword)
+    }
 }

@@ -17,4 +17,10 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch { keywords = keywordRepository.getRecentKeywords() }
         return keywords
     }
+
+    fun deleteKeyword(keyword: String) {
+        viewModelScope.launch {
+            keywordRepository.deleteRecentKeyword(keyword)
+        }
+    }
 }

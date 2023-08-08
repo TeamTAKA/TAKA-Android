@@ -58,4 +58,10 @@ object SharedPreference {
         keywords.add(0, keyword)
         pref?.edit()?.putString(RECENT_KEYWORD, Gson().toJson(keywords))?.apply()
     }
+
+    fun deleteRecentKeyword(keyword: String) {
+        val keywords = getRecentKeywords().toMutableList()
+        keywords.remove(keyword)
+        pref?.edit()?.putString(RECENT_KEYWORD, Gson().toJson(keywords))?.apply()
+    }
 }

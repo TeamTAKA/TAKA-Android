@@ -33,9 +33,15 @@ class SearchFragment : Fragment() {
         }
     }
     private val keywordAdapter: RecentKeywordAdapter by lazy {
-        RecentKeywordAdapter { keyword ->
-            search(keyword)
-        }
+        RecentKeywordAdapter(
+            itemClickListener = { keyword ->
+                search(keyword)
+            },
+            deleteClickListener = { keyword ->
+                viewModel.deleteKeyword(keyword)
+                getRecentKeywords()
+            }
+        )
     }
 
     override fun onCreateView(
