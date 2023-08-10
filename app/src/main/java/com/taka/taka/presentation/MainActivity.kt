@@ -25,8 +25,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AddActivity::class.java))
         }
         binding.mainIvHome.setOnClickListener {
-            if (navController.currentDestination?.id == R.id.search_fragment)
-                navController.navigate(R.id.action_searchFragment_to_homeFragment)
+            if (navController.currentDestination?.id == R.id.search_fragment) {
+                navController.navigateUp()
+            }
         }
         binding.mainIvSearch.setOnClickListener {
             if (navController.currentDestination?.id == R.id.home_fragment)
