@@ -4,4 +4,5 @@ interface KeywordRepository {
     suspend fun getRecentKeywords(): List<String>
     suspend fun addRecentKeyword(keyword: String)
     suspend fun deleteRecentKeyword(keyword: String)
+    suspend fun deleteAllRecentKeywords()
 }

@@ -23,4 +23,10 @@ class SearchViewModel @Inject constructor(
             keywordRepository.deleteRecentKeyword(keyword)
         }
     }
+
+    fun deleteAllKeywords() {
+        viewModelScope.launch {
+            keywordRepository.deleteAllRecentKeywords()
+        }
+    }
 }

@@ -44,4 +44,8 @@ class LocalDataSource @Inject constructor() {
     fun deleteRecentKeyword(keyword: String) {
         SharedPreference.deleteRecentKeyword(keyword)
     }
+
+    fun deleteAllRecentKeywords() {
+        SharedPreference.deleteAllRecentKeyword()
+    }
 }

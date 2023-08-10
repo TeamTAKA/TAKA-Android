@@ -64,4 +64,8 @@ object SharedPreference {
         keywords.remove(keyword)
         pref?.edit()?.putString(RECENT_KEYWORD, Gson().toJson(keywords))?.apply()
     }
+
+    fun deleteAllRecentKeyword() {
+        pref?.edit()?.putString(RECENT_KEYWORD, "[]")?.apply()
+    }
 }

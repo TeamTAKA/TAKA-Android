@@ -69,6 +69,13 @@ class SearchFragment : Fragment() {
             }
             search(keyword)
         }
+        binding.tvDeleteAll.setOnClickListener {
+            viewModel.deleteAllKeywords()
+            binding.tvRecent.isVisible = false
+            binding.tvDeleteAll.isVisible = false
+            binding.rvKeywords.isVisible = false
+            keywordAdapter.setKeywordList(emptyList())
+        }
 
         getRecentKeywords()
     }
