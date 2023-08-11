@@ -41,6 +41,11 @@ class DetailActivity : AppCompatActivity() {
             unregisterForContextMenu(it)
         }
         binding.detailTvReview.movementMethod = ScrollingMovementMethod()
+        binding.tvAddReview.setOnClickListener {
+            startActivity(Intent(this, AddActivity::class.java).apply {
+                putExtra(TICKET_KEY, ticket)
+            })
+        }
 
         ticketId = intent.extras?.getInt(TICKET_ID_KEY)
 
@@ -73,6 +78,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.detailTvReview.text = it.review
                 binding.detailTvReview.isVisible = it.review.isNotBlank()
                 binding.tvReviewAddLabel.isVisible = it.review.isBlank()
+                binding.tvAddReview.isVisible = it.review.isBlank()
 
                 binding.tvNumber.text = it.count.toString()
                 Glide

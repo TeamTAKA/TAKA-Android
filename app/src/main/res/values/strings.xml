@@ -56,6 +56,7 @@
     <string name="menu_edit">수정하기</string>
     <string name="menu_delete">삭제하기</string>
     <string name="menu_share">공유하기</string>
+    <string name="add_review">추가하기</string>
     <!-- 검색 화면 -->
     <string name="search_title">SEARCH</string>
     <string name="search_edit_label">작품명, 배우명 등으로 검색해보세요</string>
