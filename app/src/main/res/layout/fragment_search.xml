@@ -30,8 +30,8 @@
         android:layout_marginEnd="10dp"
         android:background="@null"
         android:hint="@string/search_edit_label"
-        android:inputType="textImeMultiLine"
         android:imeOptions="actionSearch"
+        android:inputType="textImeMultiLine"
         android:textColor="@color/black"
         android:textColorHint="@color/text_hint"
         android:textSize="16sp"
@@ -103,5 +103,18 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_recent" />
+
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="@string/search_recent_keyword_empty"
+            android:textColor="#C2C2C2"
+            android:textSize="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

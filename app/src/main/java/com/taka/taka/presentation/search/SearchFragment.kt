@@ -65,6 +65,7 @@ class SearchFragment : Fragment() {
             binding.tvRecent.isVisible = false
             binding.tvDeleteAll.isVisible = false
             binding.rvKeywords.isVisible = false
+            binding.tvEmpty.isVisible = true
             keywordAdapter.setKeywordList(emptyList())
         }
         binding.etKeyword.setOnEditorActionListener { textView, actionId, _ ->
@@ -85,6 +86,7 @@ class SearchFragment : Fragment() {
             binding.tvRecent.isVisible = it.isNotEmpty()
             binding.tvDeleteAll.isVisible = it.isNotEmpty()
             binding.rvKeywords.isVisible = it.isNotEmpty()
+            binding.tvEmpty.isVisible = it.isEmpty()
         }
     }
 
