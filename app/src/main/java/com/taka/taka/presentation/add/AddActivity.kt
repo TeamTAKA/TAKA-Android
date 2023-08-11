@@ -74,6 +74,7 @@ class AddActivity : AppCompatActivity() {
                 .load(it.img)
                 .into(binding.addIvPoster)
             filepath = "filepath"
+            checkAddable()
         }
 
         binding.addIvBack.setOnClickListener { finish() }
