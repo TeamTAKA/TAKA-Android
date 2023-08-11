@@ -30,6 +30,8 @@
         android:layout_marginEnd="10dp"
         android:background="@null"
         android:hint="@string/search_edit_label"
+        android:inputType="textImeMultiLine"
+        android:imeOptions="actionSearch"
         android:textColor="@color/black"
         android:textColorHint="@color/text_hint"
         android:textSize="16sp"

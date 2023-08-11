@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -57,17 +58,7 @@ class SearchFragment : Fragment() {
 
         binding.rvKeywords.adapter = keywordAdapter
         binding.ivSearch.setOnClickListener {
-            val keyword = binding.etKeyword.text.toString().trim()
-
-            if (keyword.isEmpty()) {
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.search_keyword_empty),
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-            search(keyword)
+            search(binding.etKeyword.text.toString().trim())
         }
         binding.tvDeleteAll.setOnClickListener {
             viewModel.deleteAllKeywords()
@@ -75,6 +66,14 @@ class SearchFragment : Fragment() {
             binding.tvDeleteAll.isVisible = false
             binding.rvKeywords.isVisible = false
             keywordAdapter.setKeywordList(emptyList())
+        }
+        binding.etKeyword.setOnEditorActionListener { textView, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                search(textView.text.toString().trim())
+                true
+            } else {
+                false
+            }
         }
 
         getRecentKeywords()
@@ -90,6 +89,15 @@ class SearchFragment : Fragment() {
     }
 
     private fun search(keyword: String) {
+        if (keyword.isEmpty()) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.search_keyword_empty),
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
         resultLauncher.launch(Intent(context, SearchResultActivity::class.java).apply {
             putExtra(KEYWORD_KEY, keyword)
         })

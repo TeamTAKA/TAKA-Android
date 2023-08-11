@@ -3,6 +3,7 @@ package com.taka.taka.presentation.search
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -41,12 +42,15 @@ class SearchResultActivity : AppCompatActivity() {
         search(keyword)
         binding.etKeyword.setText(keyword)
         binding.ivSearch.setOnClickListener {
-            val text = binding.etKeyword.text.toString()
-            if (text.isBlank()) {
-                Toast.makeText(this, getString(R.string.search_keyword_empty), Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            search(binding.etKeyword.text.toString())
+        }
+        binding.etKeyword.setOnEditorActionListener { textView, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                search(textView.text.toString())
+                true
+            } else {
+                false
             }
-            search(text)
         }
 
         viewModel.searchResults.observe(this) { tickets ->
@@ -57,6 +61,11 @@ class SearchResultActivity : AppCompatActivity() {
     }
 
     private fun search(keyword: String) {
+        if (keyword.isBlank()) {
+            Toast.makeText(this, getString(R.string.search_keyword_empty), Toast.LENGTH_SHORT).show()
+            return
+        }
+
         lifecycleScope.launch {
             viewModel.search(keyword)
         }
