@@ -33,6 +33,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        window.statusBarColor = getColor(R.color.white)
 
         binding.detailIbBack.setOnClickListener { finish() }
         binding.detailIbMenu.setOnClickListener {

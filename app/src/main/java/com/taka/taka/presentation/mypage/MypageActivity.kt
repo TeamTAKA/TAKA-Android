@@ -7,6 +7,7 @@ import android.util.DisplayMetrics
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.taka.taka.R
 import com.taka.taka.databinding.ActivityMypageBinding
 import com.taka.taka.databinding.DialogContactBinding
 import com.taka.taka.presentation.login.LoginActivity
@@ -26,6 +27,7 @@ class MypageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        window.statusBarColor = getColor(R.color.white)
 
         val nickname = "${viewModel.userId}님!"
         binding.mypageTvNickname.text = nickname

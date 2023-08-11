@@ -28,6 +28,7 @@ class SearchResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        window.statusBarColor = getColor(R.color.white)
 
         binding.rvTickets.adapter = TicketGroupAdapter { ticketId ->
             startActivity(

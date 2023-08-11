@@ -55,6 +55,7 @@ class SearchFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        requireActivity().window.statusBarColor = requireContext().getColor(R.color.white)
 
         binding.rvKeywords.adapter = keywordAdapter
         binding.ivSearch.setOnClickListener {

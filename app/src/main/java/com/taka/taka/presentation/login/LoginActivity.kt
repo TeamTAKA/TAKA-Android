@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.taka.taka.R
 import com.taka.taka.databinding.ActivityLoginBinding
 import com.taka.taka.presentation.MainActivity
 import com.taka.taka.presentation.signup.SignupActivity
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        window.statusBarColor = getColor(R.color.gray_light)
 
         initBinding()
         observeViewModel()
