@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.view.ContextMenu
-import android.view.MenuItem
-import android.view.View
+import android.view.View.MeasureSpec.UNSPECIFIED
+import android.view.ViewGroup
+import android.widget.PopupWindow
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -14,8 +14,10 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.taka.taka.R
 import com.taka.taka.databinding.ActivityDetailBinding
+import com.taka.taka.databinding.PopupDetailBinding
 import com.taka.taka.domain.model.Ticket
 import com.taka.taka.presentation.add.AddActivity
+import com.taka.taka.presentation.utils.dpToPx
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -26,6 +28,15 @@ class DetailActivity : AppCompatActivity() {
             layoutInflater
         )
     }
+    private val popupBinding by lazy { PopupDetailBinding.inflate(layoutInflater) }
+    private val popupWindow by lazy {
+        PopupWindow(
+            popupBinding.root,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+    }
     private val viewModel: DetailViewModel by viewModels()
     private var ticketId: Int? = null
     private var ticket: Ticket? = null
@@ -34,12 +45,16 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         window.statusBarColor = getColor(R.color.white)
+        setPopupWindow()
 
         binding.detailIbBack.setOnClickListener { finish() }
         binding.detailIbMenu.setOnClickListener {
-            registerForContextMenu(it)
-            openContextMenu(it)
-            unregisterForContextMenu(it)
+            popupBinding.root.measure(UNSPECIFIED, UNSPECIFIED)
+            popupWindow.showAsDropDown(
+                binding.detailIbMenu,
+                -popupBinding.root.measuredWidth + 20.dpToPx.toInt(),
+                0
+            )
         }
         binding.detailTvReview.movementMethod = ScrollingMovementMethod()
         binding.tvAddReview.setOnClickListener {
@@ -90,34 +105,22 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateContextMenu(
-        menu: ContextMenu?,
-        v: View?,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        menuInflater.inflate(R.menu.ticket_menu, menu)
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_delete -> {
-                lifecycleScope.launch {
-                    ticketId?.let {
-                        viewModel.deleteTicket(it)
-                    }
+    private fun setPopupWindow() {
+        popupWindow.elevation = 10.dpToPx
+        popupBinding.menuEdit.setOnClickListener {
+            startActivity(Intent(this@DetailActivity, AddActivity::class.java).apply {
+                putExtra(TICKET_KEY, ticket)
+            })
+            popupWindow.dismiss()
+        }
+        popupBinding.menuDelete.setOnClickListener {
+            lifecycleScope.launch {
+                ticketId?.let { id ->
+                    viewModel.deleteTicket(id)
                 }
             }
-            R.id.menu_edit -> {
-                startActivity(Intent(this, AddActivity::class.java).apply {
-                    putExtra(TICKET_KEY, ticket)
-                })
-            }
-            R.id.menu_share -> {
-
-            }
+            popupWindow.dismiss()
         }
-        return super.onContextItemSelected(item)
     }
 
     companion object {
