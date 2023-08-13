@@ -57,6 +57,9 @@
     <string name="menu_delete">삭제하기</string>
     <string name="menu_share">공유하기</string>
     <string name="add_review">추가하기</string>
+    <string name="label_close_button">닫기 버튼</string>
+    <string name="delete_dialog_title">정말 삭제하시겠습니까?</string>
+    <string name="delete_dialog_desc">삭제 후에는 복구가 불가능합니다.</string>
     <!-- 검색 화면 -->
     <string name="search_title">SEARCH</string>
     <string name="search_edit_label">작품명, 배우명 등으로 검색해보세요</string>

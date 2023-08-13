@@ -45,6 +45,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         window.statusBarColor = getColor(R.color.white)
+        ticketId = intent.extras?.getInt(TICKET_ID_KEY)
         setPopupWindow()
 
         binding.detailIbBack.setOnClickListener { finish() }
@@ -63,11 +64,10 @@ class DetailActivity : AppCompatActivity() {
             })
         }
 
-        ticketId = intent.extras?.getInt(TICKET_ID_KEY)
-
         viewModel.deleteSuccess.observe(this) { success ->
             if (success) {
                 setResult(Activity.RESULT_OK)
+                popupWindow.dismiss()
                 finish()
             }
         }
@@ -113,12 +113,9 @@ class DetailActivity : AppCompatActivity() {
             })
             popupWindow.dismiss()
         }
+        val deleteDialog = DeleteDialog(viewModel, ticketId)
         popupBinding.menuDelete.setOnClickListener {
-            lifecycleScope.launch {
-                ticketId?.let { id ->
-                    viewModel.deleteTicket(id)
-                }
-            }
+            deleteDialog.show(supportFragmentManager, deleteDialog.tag)
             popupWindow.dismiss()
         }
     }
