@@ -26,7 +26,7 @@ class DeleteDialog(private val viewModel: DetailViewModel, private val ticketId:
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
         binding.ivClose.setOnClickListener { dismiss() }
-        binding.tvDelete.setOnClickListener {
+        binding.btnDelete.setOnClickListener {
             lifecycleScope.launch {
                 ticketId?.let { id ->
                     viewModel.deleteTicket(id)

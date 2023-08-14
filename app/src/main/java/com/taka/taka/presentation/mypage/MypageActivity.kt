@@ -1,10 +1,10 @@
 package com.taka.taka.presentation.mypage
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.taka.taka.R
@@ -55,7 +55,7 @@ class MypageActivity : AppCompatActivity() {
         bottomSheetBinding.root.layoutParams.height = deviceHeight - 30
 
         bottomSheetBinding.contactIbClose.setOnClickListener { bottomSheetDialog.dismiss() }
-        bottomSheetBinding.contactTvWrite.setOnClickListener {
+        bottomSheetBinding.btnWrite.setOnClickListener {
             bottomSheetDialog.dismiss()
             //TODO: 서버로 보내기
         }

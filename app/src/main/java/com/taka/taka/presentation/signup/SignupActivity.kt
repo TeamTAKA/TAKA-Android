@@ -33,7 +33,7 @@ class SignupActivity : AppCompatActivity() {
         binding.signupTvDuplicate.setOnClickListener {
             viewModel.checkId(binding.signupEtId.text.toString().trim())
         }
-        binding.signupTvSignup.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             viewModel.signup(
                 binding.signupEtId.text.toString().trim(),
                 binding.signupEtPwd.text.toString().trim(),

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="SquareButton">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:backgroundTint">@color/orange_pink</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
+        <item name="cornerRadius">5dp</item>
+    </style>
+</resources>

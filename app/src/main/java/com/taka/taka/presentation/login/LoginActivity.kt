@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initBinding() {
-        binding.loginTvLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             viewModel.login(
                 binding.loginEtId.text.toString(),
                 binding.loginEtPwd.text.toString()
