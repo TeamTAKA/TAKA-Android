@@ -28,7 +28,7 @@
     <string name="search">검색</string>
     <!-- 홈 화면 -->
     <string name="home_title">MY TICKETS</string>
-    <string name="home_tickets_empty">버튼을 눌러\n티켓을 추가해보세요</string>
+    <string name="home_tickets_empty">버튼을 눌러\n티켓을 추가해보세요.</string>
     <string name="ticket_title_default">MUSICAL</string>
     <!-- 티켓 등록 화면 -->
     <string name="add">등록</string>
@@ -40,15 +40,15 @@
     <string name="ticket_seat">좌석</string>
     <string name="ticket_cast">캐스트</string>
     <string name="ticket_review">리뷰</string>
-    <string name="ticket_title_kr_empty">작품의 국문명을 입력해주세요</string>
-    <string name="ticket_title_en_empty">작품의 영문명을 입력해주세요</string>
-    <string name="ticket_date_empty">관람일자를 입력해주세요</string>
-    <string name="ticket_description_empty">회차 정보를 입력해주세요</string>
-    <string name="ticket_theater_empty">공연장 정보를 입력해주세요</string>
-    <string name="ticket_seat_empty">좌석 정보를 입력해주세요</string>
-    <string name="ticket_cast_empty">캐스트 정보를 입력해주세요</string>
-    <string name="ticket_review_empty">리뷰를 입력해주세요</string>
-    <string name="ticket_image_empty">포스터를 추가해주세요</string>
+    <string name="ticket_title_kr_empty">작품의 국문명을 입력해주세요.</string>
+    <string name="ticket_title_en_empty">작품의 영문명을 입력해주세요.</string>
+    <string name="ticket_date_empty">관람일자를 입력해주세요.</string>
+    <string name="ticket_description_empty">회차 정보를 입력해주세요.</string>
+    <string name="ticket_theater_empty">공연장 정보를 입력해주세요.</string>
+    <string name="ticket_seat_empty">좌석 정보를 입력해주세요.</string>
+    <string name="ticket_cast_empty">캐스트 정보를 입력해주세요.</string>
+    <string name="ticket_review_empty">리뷰를 입력해주세요.</string>
+    <string name="ticket_image_empty">포스터를 추가해주세요.</string>
     <string name="ticket_image_edit">포스터 이미지 편집 버튼</string>
     <string name="home_imageview_mode">티켓 뷰 변경 아이콘</string>
     <string name="error_ticket_add_failed">티켓 추가 실패</string>
@@ -62,12 +62,12 @@
     <string name="delete_dialog_desc">삭제 후에는 복구가 불가능합니다.</string>
     <!-- 검색 화면 -->
     <string name="search_title">SEARCH</string>
-    <string name="search_edit_label">작품명, 배우명 등으로 검색해보세요</string>
+    <string name="search_edit_label">작품명, 배우명 등으로 검색해보세요.</string>
     <string name="search_recent_keyword">최근 검색어</string>
     <string name="search_delete_all">모두 지우기</string>
-    <string name="search_keyword_empty">검색어를 입력하세요</string>
-    <string name="search_result_empty">검색 결과가 없습니다</string>
-    <string name="search_recent_keyword_empty">최근 검색 내역이 없습니다</string>
+    <string name="search_keyword_empty">검색어를 입력하세요.</string>
+    <string name="search_result_empty">검색 결과가 없습니다.</string>
+    <string name="search_recent_keyword_empty">최근 검색 내역이 없습니다.</string>
     <string name="search_button_label">검색 버튼</string>
     <!-- 마이페이지 -->
     <string name="mypage_icon">마이페이지 아이콘</string>
@@ -75,8 +75,8 @@
     <string name="mypage_contact">문의하기</string>
     <string name="mypage_logout">로그아웃</string>
     <string name="mypage_title">MY PAGE</string>
-    <string name="contact_email_hint">연락 받을 이메일 주소를 입력하세요</string>
-    <string name="contact_title_hint">제목을 입력하세요</string>
-    <string name="contact_content_hint">내용을 입력하세요</string>
+    <string name="contact_email_hint">연락 받을 이메일 주소를 입력하세요.</string>
+    <string name="contact_title_hint">제목을 입력하세요.</string>
+    <string name="contact_content_hint">내용을 입력하세요.</string>
     <string name="contact_write">작성하기</string>
 </resources>
