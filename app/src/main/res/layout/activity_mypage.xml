@@ -56,7 +56,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/pretendard_regular"
         android:includeFontPadding="false"
-        android:textColor="@color/orange_red"
+        android:textColor="@color/orange_vivid"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="36dp"
-        android:background="@color/gray_light"
+        android:background="@color/gray_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="22dp"
             android:text="@string/mypage_contact"
-            android:textColor="@color/text_hint"
+            android:textColor="@color/gray_text1"
             android:textSize="17dp"
             tools:ignore="SpUsage" />
 
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="16dp"
-            android:background="@color/divider" />
+            android:background="@color/black_alpha15" />
 
         <TextView
             android:id="@+id/mypage_tv_logout"
@@ -106,7 +106,7 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="22dp"
             android:text="@string/mypage_logout"
-            android:textColor="@color/text_hint"
+            android:textColor="@color/gray_text1"
             android:textSize="17dp"
             tools:ignore="SpUsage" />
 

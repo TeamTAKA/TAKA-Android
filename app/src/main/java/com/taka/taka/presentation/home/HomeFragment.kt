@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().window.statusBarColor = requireContext().getColor(R.color.gray_light)
+        requireActivity().window.statusBarColor = requireContext().getColor(R.color.gray_background)
 
         binding.homeIvMode.setOnClickListener {
             if (isModeGroup) {

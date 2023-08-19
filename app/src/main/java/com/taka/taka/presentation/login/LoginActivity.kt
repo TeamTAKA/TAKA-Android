@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        window.statusBarColor = getColor(R.color.gray_light)
+        window.statusBarColor = getColor(R.color.gray_background)
 
         initBinding()
         observeViewModel()

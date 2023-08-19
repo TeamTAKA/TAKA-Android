@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/gray_light">
+    android:background="@color/gray_background">
 
     <LinearLayout
         android:id="@+id/ticket_group_ll_title"
@@ -27,7 +27,7 @@
             android:ellipsize="end"
             android:fontFamily="@font/taka_regular"
             android:text="@string/ticket_title_en_sample"
-            android:textColor="@color/orange_red"
+            android:textColor="@color/orange_mild"
             android:textSize="21sp" />
 
         <ImageView

@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:ellipsize="end"
         android:lines="1"
-        android:textColor="#1d1d1d"
+        android:textColor="@color/black"
         android:textSize="16dp"
         tools:text="가나다라마바사아자차카타파하" />
 

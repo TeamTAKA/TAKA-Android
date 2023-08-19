@@ -22,7 +22,7 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        window.statusBarColor = getColor(R.color.gray_light)
+        window.statusBarColor = getColor(R.color.gray_background)
 
         initBinding()
         observeViewModel()
@@ -53,7 +53,7 @@ class SignupActivity : AppCompatActivity() {
             } else {
                 binding.signupTvDuplicate.apply {
                     text = getString(R.string.signup_duplicate_check)
-                    setTextColor(resources.getColor(R.color.orange_red))
+                    setTextColor(resources.getColor(R.color.orange_vivid))
                 }
             }
         }

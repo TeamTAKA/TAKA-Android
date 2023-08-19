@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="SquareButton">
         <item name="android:layout_height">50dp</item>
-        <item name="android:backgroundTint">@color/orange_pink</item>
+        <item name="android:backgroundTint">@color/orange_vivid</item>
         <item name="android:fontFamily">@font/pretendard_regular</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>

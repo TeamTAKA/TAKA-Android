@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light"
+    android:background="@color/gray_background"
     tools:context=".presentation.splash.SplashActivity">
 
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_marginBottom="46dp"
         android:fontFamily="@font/pretendard_medium"
         android:text="@string/splash_content"
-        android:textColor="@color/orange_red"
+        android:textColor="@color/orange_vivid"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
