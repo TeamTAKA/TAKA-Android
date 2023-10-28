@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -20,6 +21,7 @@ import com.taka.taka.presentation.detail.DetailActivity
 import com.taka.taka.presentation.home.adapter.TicketCardAdapter
 import com.taka.taka.presentation.home.adapter.TicketGroupAdapter
 import com.taka.taka.presentation.mypage.MypageActivity
+import com.taka.taka.presentation.utils.dpToPx
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -39,6 +41,7 @@ class HomeFragment : Fragment() {
             getTickets()
         }
     }
+    private var indicatorWidth = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,6 +89,19 @@ class HomeFragment : Fragment() {
                 super.onPageSelected(position)
                 binding.homeTvCurrentTicket.text = (position+1).toString()
             }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                val newPosition = position + positionOffset
+                val params = binding.indicator.layoutParams as ConstraintLayout.LayoutParams
+                params.leftMargin = (16.dpToPx + indicatorWidth * newPosition).toInt()
+                params.width = indicatorWidth
+                binding.indicator.layoutParams = params
+            }
         })
         // 티켓 그룹 목록
         binding.homeRvTickets.adapter = TicketGroupAdapter { ticketId ->
@@ -104,6 +120,7 @@ class HomeFragment : Fragment() {
     private fun getTickets() {
         lifecycleScope.launch {
             viewModel.getTickets().let { ticketCards ->
+                indicatorWidth = binding.indicatorBg.width / ticketCards.size
                 binding.homeTvEmpty.isVisible = ticketCards.isEmpty()
                 binding.homeTvTicketCount.text = "/${ticketCards.size}"
                 (binding.homeVpTickets.adapter as TicketCardAdapter).setTicketList(viewModel.getTickets())
