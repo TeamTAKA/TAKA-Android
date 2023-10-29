@@ -120,7 +120,13 @@ class HomeFragment : Fragment() {
     private fun getTickets() {
         lifecycleScope.launch {
             viewModel.getTickets().let { ticketCards ->
-                indicatorWidth = binding.indicatorBg.width / ticketCards.size
+                indicatorWidth = if (ticketCards.isEmpty()) {
+                    binding.indicator.isVisible = false
+                    0
+                } else {
+                    binding.indicator.isVisible = true
+                    binding.indicatorBg.width / ticketCards.size
+                }
                 binding.homeTvEmpty.isVisible = ticketCards.isEmpty()
                 binding.homeTvTicketCount.text = "/${ticketCards.size}"
                 (binding.homeVpTickets.adapter as TicketCardAdapter).setTicketList(viewModel.getTickets())
